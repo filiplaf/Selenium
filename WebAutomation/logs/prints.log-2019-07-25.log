@@ -1,0 +1,5 @@
+15:28:58.558 [main] INFO  resources.base - Ima transakcija u ovom mesecu
+15:38:51.678 [main] INFO  resources.base - Korisnik pera61 je uspesno ulogovan
+15:38:55.958 [main] INFO  resources.base - Uspješno ste zakazali isplatu novca od 100 HRK na isplatnom mjestu City caffe - City caffe, Trg hrvatskih Velikana 9. Kod za isplatu: 2282568906001
+15:45:04.936 [main] INFO  resources.base - Korisnik pera61 je uspesno ulogovan
+15:45:32.868 [main] INFO  resources.base - Uspješna isplata na teku?i ra?un od 400hrk

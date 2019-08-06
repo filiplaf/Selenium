@@ -1,0 +1,5 @@
+12:16:26.097 [main] INFO  resources.base - Uspješno ste zakazali isplatu novca od 300 HRK na isplatnom mjestu Zagreb Dubrava 1 - Zagreb Dubrava 1, Vinodolska 1. Kod za isplatu: 6474891296001
+12:53:41.633 [main] INFO  resources.base - Korisnik pera63 je uspesno ulogovan
+12:53:45.920 [main] INFO  resources.base - Uspješna isplata na teku?i ra?un od 400hrk
+12:53:49.998 [main] INFO  resources.base - Uspješna isplata na teku?i ra?un od 500hrk
+12:53:54.174 [main] INFO  resources.base - Uspješna isplata na teku?i ra?un od 600hrk

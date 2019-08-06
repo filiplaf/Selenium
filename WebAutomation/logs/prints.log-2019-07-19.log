@@ -1,0 +1,6 @@
+14:51:53.935 [main] INFO  resources.base - Uspešno ste uplatili tiket. Stanje novca na vašem ra?unu iznosi: 411.493,76 RSD
+14:52:00.030 [main] INFO  resources.base - Brzzi tiket sa kodom: 7934405 možete uplatiti na bilo kojem MOZZART uplatnom mestu.
+15:45:41.122 [main] INFO  resources.base - Korisnik pera61 je uspesno ulogovan
+15:46:03.623 [main] INFO  resources.base - Korisnik pera61 je uspesno ulogovan
+15:46:09.358 [main] INFO  resources.base - U ovom danu ima transakcija
+15:46:09.483 [main] INFO  resources.base - Ima transakcija u ovom mesecu
