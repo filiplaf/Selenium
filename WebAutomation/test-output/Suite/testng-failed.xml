@@ -5,14 +5,14 @@
     <listener class-name="MozzartSrbija.listeners"/>
     <listener class-name="resources.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="Pregled transakcija za tekuci mesec(failed)">
+  <test thread-count="5" name="Logovanje korisnika i uplata svih tipova tiketa(failed)">
     <classes>
-      <class name="MozzartSrbija.PregledTransakcija">
+      <class name="MozzartSrbija.UplataVaucerTiket">
         <methods>
           <include name="teardown"/>
-          <include name="Transakcije"/>
+          <include name="Uplata"/>
         </methods>
-      </class> <!-- MozzartSrbija.PregledTransakcija -->
+      </class> <!-- MozzartSrbija.UplataVaucerTiket -->
     </classes>
-  </test> <!-- Pregled transakcija za tekuci mesec(failed) -->
+  </test> <!-- Logovanje korisnika i uplata svih tipova tiketa(failed) -->
 </suite> <!-- Failed suite [Suite] -->

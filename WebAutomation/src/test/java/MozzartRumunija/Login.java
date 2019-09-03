@@ -19,11 +19,14 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		driver = initializeDriver();
 		driver.get(prop.getProperty("url2"));
 		LandingPage lp = new LandingPage(driver);
+		lp.znak().click();
+		Thread.sleep(5000);
+		lp.cookie().click();
 		lp.getLogin().click();
 		lp.getUsername().sendKeys(Username);
 		lp.getPassword().sendKeys(Password);
 		lp.getButtonClick().click();
-		Thread.sleep(10000);   //MOZE BOLJE OD OVOGA
+		Thread.sleep(15000);   //MOZE BOLJE OD OVOGA
 		String Ime = lp.getnameNavigation().getText();
 		log.info("Korisnik " +Ime+ " je uspesno ulogovan");
 	}
@@ -34,8 +37,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		//Row stands dor how many different data types test should run
 		//Column stands for how many values send per test
 		Object[][] data = new Object[1][2];             // 3 test, 2 parametars username and password
-		data[0][0] = "pera63";
-		data[0][1] = "88888888";
+		data[0][0] = "pera61";
+		data[0][1] = "888888";
 		
 		return data;
 	}

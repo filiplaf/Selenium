@@ -7,17 +7,17 @@ import org.openqa.selenium.WebElement;
 public class KladjenjeVerifikacija {
 
 		public WebDriver driver;
-		By mec1 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(1) > td.odd.tooltip.i0");
-		By mec2 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(4) > td.odd.tooltip.i5");
-		By mec3 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(7) > td.odd.tooltip.i2.g0");
-		By mec4 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(10) > td.odd.tooltip.i0");
-		By uplata = By.cssSelector("div#ordinary-ticket input#bt-input");
-		By uplataDugme = By.cssSelector("div#ordinary-ticket button");
-		By uplataDugme2 = By.cssSelector("div#ticket-popup-holder button.button.pay");
-		By title = By.xpath("//*[@id=\"ajax-loader\"]/div[5]");
-		By Accept = By.cssSelector("div#ticket-popup-holder button.button.accept-verified");
-		By title1 = By.xpath("//*[@id=\"ticket-popup-holder\"]/div[2]/div[1]");
-		By closeButton = By.cssSelector("div#ticket-popup-holder button.button.ok");
+		By mec1 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(2) > div > div.part2 > div:nth-child(1) > div:nth-child(1)");
+		By mec2 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(3) > div > div.part2 > div:nth-child(1) > div:nth-child(1)");
+		By mec3 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(4) > div > div.part2 > div:nth-child(3) > div:nth-child(2)");
+		By mec4 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(5) > div > div.part2 > div:nth-child(1) > div:nth-child(2)");
+		By uplata = By.cssSelector("input#bettingAmount");
+		By uplataDugme = By.cssSelector("button#pay-ticket");
+		By uplataDugme2 = By.cssSelector("section#right button.button.pay");
+		By title = By.cssSelector("section#right div.message");
+		By Accept = By.cssSelector("section#right button:nth-child(2)");
+		By AcceptUplata = By.cssSelector("section#right button.button.pay");
+		By closeButton = By.cssSelector("section#right button.button.close");
 		
 		public KladjenjeVerifikacija(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -52,8 +52,8 @@ public class KladjenjeVerifikacija {
 		public WebElement Accept() {
 			return driver.findElement(Accept);
 		}	
-		public WebElement title1() {
-			return driver.findElement(title1);
+		public WebElement AcceptUplata() {
+			return driver.findElement(AcceptUplata);
 		}
 		public WebElement closeButton() {
 			return driver.findElement(closeButton);

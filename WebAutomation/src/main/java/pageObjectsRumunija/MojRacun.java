@@ -7,23 +7,24 @@ import org.openqa.selenium.WebElement;
 public class MojRacun {
 
 		public WebDriver driver;
-		By Isplata = By.cssSelector("li#pay-out > a");
-		By NaUplatnoMesto = By.cssSelector("div#profile-wrapper div:nth-child(3) > div:nth-child(4) > div.pay-info-header");
-		By NaSkrillRacun = By.cssSelector("div#profile-wrapper div:nth-child(3) > div:nth-child(5) > div.pay-info-header");
-		By UplatnoMesto = By.cssSelector("span#account-businessunits-select-button > span.ui-selectmenu-text");
-		By Iznos = By.cssSelector("input#pay-input");
-		By IznosZaSkrill = By.cssSelector("input[name=\"skrill-moneybookers-payout-amount\"]");
-		By MailZaTekuci = By.cssSelector("input[name=\"skrill-moneybookers-payout-email\"]");
-		By Isplati = By.id("pay-button");
-		By IsplatiNaSkrill = By.id("skrill-moneybookers-payout-button");
+		By Isplata = By.cssSelector("div#account-wrapper div:nth-child(3) > li");
+		By NaUplatnoMesto = By.cssSelector("section#mozzart div.table-row > div:nth-child(1)");
+		By NaSkrillRacun = By.cssSelector("section#skrill-ro div.table-row > div:nth-child(1)");
+		By UplatnoMesto = By.cssSelector("section#mozzart i");
+		By Iznos = By.cssSelector("section#mozzart input[type=\"text\"]");
+		By IznosZaSkrill = By.cssSelector("section#skrill-ro div:nth-child(1) > input[type=\"text\"]");
+		By MailZaTekuci = By.cssSelector("section#skrill-ro div:nth-child(2) > input[type=\"text\"]");
+		By Isplati = By.id("pay-btn-mozzart");
+		By IsplatiNaSkrill = By.id("pay-btn-skrill-ro");
 		By Um = By.cssSelector("span#account-businessunits-select-button > span.ui-selectmenu-text");
-		By Bucurest = By.xpath("//*[contains(text(), 'Bucuresti')]");
-		By Potvrdi = By.id("button-confirm");
+		By Bucurest = By.xpath("//*[contains(text(), 'Bucuresti-2')]");
+		By Potvrdi = By.cssSelector("div#account-wrapper div.close-popup");
 		By Title = By.cssSelector("#popup-holder > div.balance-info-popup > div.balance-info.true > p");
 		By ZatvoriDugme = By.cssSelector("div#popup-holder button.button.ok");
-		By VerifikacijaDugme = By.cssSelector("#gdpr-wrapper > div > div");
-		By Transakcije = By.cssSelector("li#transactions > a");
-		By TransakcijeTitle = By.cssSelector("#profile-wrapper > div:nth-child(4) > div.transactions-body-wrapper");
+		By Transakcije = By.cssSelector("div#account-wrapper div:nth-child(4) > li");
+		By TransakcijeTitle = By.cssSelector("#account-wrapper > section.account-container > div.account-container-center > div > div.transactions-table");
+		By Kalendar = By.cssSelector("div#account-wrapper input[type=\"text\"]");
+		By TransactionExist = By.cssSelector(".cell.day.highlighted");
 		
 		public MojRacun(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -72,14 +73,17 @@ public class MojRacun {
 		public WebElement Potvrdi() {
 			return driver.findElement(Potvrdi);
 		}
-		public WebElement VerifikacijaDugme() {
-			return driver.findElement(VerifikacijaDugme);
-		}
 		public WebElement Transakcije() {
 			return driver.findElement(Transakcije);
 		}
 		public WebElement TransakcijeTitle() {
 			return driver.findElement(TransakcijeTitle);
+		}
+		public WebElement TransactionExist() {
+			return driver.findElement(TransactionExist);
+		}
+		public WebElement Kalendar() {
+			return driver.findElement(Kalendar);
 		}
 		
 }

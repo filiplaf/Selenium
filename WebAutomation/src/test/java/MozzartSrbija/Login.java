@@ -13,7 +13,7 @@ import resources.base;
 
 public class Login extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
-public String username = "pera64";
+public String username = "pera68";
 public String password = "8888888A";
 
 	@Test(groups = {"Login.test"} , alwaysRun = true, dataProvider = "getData")
@@ -21,11 +21,12 @@ public String password = "8888888A";
 		driver = initializeDriver();
 		driver.get(prop.getProperty("url"));
 		LandingPage lp = new LandingPage(driver);
+		lp.cookie().click();
 		lp.getLogin().click();
 		lp.getUsername().sendKeys(Username);
 		lp.getPassword().sendKeys(Password);
 		lp.getButtonClick().click();
-		String Ime = lp.user().getText();
+		String Ime = lp.getUser().getText();
 		log.info("Korisnik " +Ime+ " je uspesno ulogovan");
 	}
 	

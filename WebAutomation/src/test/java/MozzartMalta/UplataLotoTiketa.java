@@ -3,6 +3,7 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -14,9 +15,11 @@ public class UplataLotoTiketa extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Uplata() throws IOException, InterruptedException {
+	public void UplataLoto() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		lp.getMyNumber().click();
+		Actions action = new Actions(driver);
+		action.moveToElement(lp.lottoGames()).perform();
+		lp.getlotto().click();
 		Thread.sleep(1000);
 		MyNumber loto = new MyNumber(driver);
 		
@@ -29,8 +32,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		loto.uplata().sendKeys("1");
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(2000);
-		String title = loto.title3().getText();
+		Thread.sleep(5000);
+		String title = loto.title().getText();
 		log.info(title);
 		log.info("Grcki kino tiket uspesno uplacen");
 		loto.UreduDugme().click();
@@ -42,8 +45,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		loto.sistemski().click();
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(2000);
-		String title1 = loto.title3().getText();
+		Thread.sleep(5000);
+		String title1 = loto.title().getText();
 		log.info(title1);
 		log.info("Grcki kino sistemski tiket uspesno uplacen");
 		loto.UreduDugme().click();
@@ -51,10 +54,12 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 //		//grcki loto uplata singla(zbir brojeva veci od 20)
 		loto.zbir().click();
 		Thread.sleep(1000);
-		loto.uplataSingl().click();
-		loto.uplataDugme2().click();
-		Thread.sleep(2000);
-		String title2 = loto.title3().getText();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("1");
+		loto.uplataDugme3().click();
+		loto.uplataDugme4().click();
+		Thread.sleep(5000);
+		String title2 = loto.title().getText();
 		log.info(title2);
 		log.info("Grcki kino singl tiket uspesno uplacen");
 		loto.UreduDugme().click();
@@ -67,7 +72,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
 		Thread.sleep(2000);
-		String title3 = loto.title3().getText();
+		String title3 = loto.title().getText();
 		log.info(title3);
 		log.info("Italijanski loto tiket uspesno uplacen");
 		loto.UreduDugme().click();
@@ -80,7 +85,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
 		Thread.sleep(2000);
-		String title4 = loto.title3().getText();
+		String title4 = loto.title().getText();
 		log.info(title4);
 		log.info("Italijanski sistemski loto tiket uspesno uplacen");
 		loto.UreduDugme().click();

@@ -27,16 +27,18 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		mr.DocumentUpload().click();
 		DocumentUpload du = new DocumentUpload(driver);
 		du.Upload().sendKeys("C:\\Users\\filip.jakovlevski\\Desktop\\Sema.png");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		du.UploadButton().click();
 		Thread.sleep(2000);
+		String title = du.Title().getText();
+		log.info(title);
 		du.OkButton().click();
 	}
 	
 	@AfterTest(alwaysRun = true)
 	public void teardown() {
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
 }

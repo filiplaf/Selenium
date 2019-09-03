@@ -15,7 +15,6 @@ public class MojRacun {
 		By ChangePassword = By.cssSelector("div#account-wrapper div:nth-child(7) > li");
 		By DocumentUpload = By.cssSelector("div#account-wrapper div:nth-child(8) > li");
 		
-		
 		public MojRacun(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
@@ -41,6 +40,5 @@ public class MojRacun {
 		}
 		public WebElement DocumentUpload() {
 			return driver.findElement(DocumentUpload);
-		}
-		
+		}		
 }

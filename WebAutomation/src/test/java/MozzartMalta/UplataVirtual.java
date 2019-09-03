@@ -32,13 +32,11 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		vf.uplataDugme().click();
 		vf.uplataDugme2().click();
 		Thread.sleep(6000);
-		if(vf.UreduDugme().isDisplayed()) {
-			log.info("Virtualni fudbal tiket uspesno uplacen");
-			vf.UreduDugme().click();
-		}
-		else {
-			log.info("Virtualni fudbal tiket nije uplacen");
-		}
+		String title = vf.title().getText();
+		log.info(title);
+		log.info("Virtualni fudbal tiket uspesno uplacen");
+		vf.UreduDugme().click();
+
 	}
 		
 	@AfterTest(alwaysRun = true)

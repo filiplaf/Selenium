@@ -22,6 +22,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		action.moveToElement(lp.getnameNavigation()).perform();
 		lp.getMojracun().click();
 		MojRacun mr = new MojRacun(driver);
+		Thread.sleep(1000);
 		mr.Isplata().click();
 		mr.NaUplatnoMesto().click();
 		mr.Um().click();

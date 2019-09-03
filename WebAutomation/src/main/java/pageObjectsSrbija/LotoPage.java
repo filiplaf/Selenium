@@ -20,7 +20,7 @@ public class LotoPage {
 		By uplataDugme = By.id("pay-ticket");
 		By uplataDugme2 = By.cssSelector("div#spa div.actions > button");
 		By UreduDugme = By.cssSelector("div#spa button.button.close");
-		By title = By.xpath("//*[contains(text(), 'Moj broj | GRCKI KINO (20/80)')]");
+		By title = By.cssSelector("div#pageWrapper div.message");
 		By title2 = By.xpath("//*[contains(text(), 'Moj broj | ITALIJANSKI')]");
 		By sistemski = By.xpath("//*[@id=\"1\"]");
 		By zbir = By.cssSelector("div#spa div.lotto-sliders > div:nth-child(1) > div:nth-child(4)");

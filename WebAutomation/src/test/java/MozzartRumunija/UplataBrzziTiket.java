@@ -16,15 +16,18 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 	public void Uplata() throws IOException, InterruptedException {
 		BrzziTiketPage bt = new BrzziTiketPage(driver);
 		bt.ObrisiDugme().click();
+		Thread.sleep(2000);
 		bt.getmec1().click();
 		bt.getmec2().click();
 		bt.getmec3().click();
+		Thread.sleep(2000);
 		bt.Simplu().click();
 		bt.uplataDugme().click();
 		bt.uplataDBrzziTiketDugmeugme2().click();
 		Thread.sleep(15000);
 		String title = bt.title().getText();
-		log.info(title);
+		String title1 = bt.title1().getText();
+		log.info(title + "" +title1);
 		bt.UreduDugme().click();
 		
 		}

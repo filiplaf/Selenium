@@ -18,6 +18,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		LandingPage lp = new LandingPage(driver);
 		//Thread.sleep(1000);
 		lp.getKladjenje().click();
+		//lp.getUser().click();
 		Thread.sleep(2000);
 		KladjenjePage kp = new KladjenjePage(driver);
 		kp.getmec1().click();
@@ -25,12 +26,13 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		kp.getmec3().click();
 		kp.getmec4().click();
 		kp.uplata().clear();
-		kp.uplata().sendKeys("20");
+		kp.uplata().sendKeys("50");
 		kp.uplataDugme().click();
 		kp.uplataDugme2().click();
 		Thread.sleep(10000);
 		String title = kp.title().getText();
-		if(title.contains("Aktivan tiket"))
+		//log.info(title);
+		if(title.contains("Uspešno ste uplatili tiket"))
 			log.info("Tiket uspesno uplacen");
 		else {
 			log.error("Tiket nije uplacen");

@@ -17,7 +17,7 @@ public class MojRacun {
 		By IsplatiNaTekuci = By.id("pay-btn-bank");
 		By Um = By.cssSelector("section#mozzart div.vs__selected-options > input");
 		By CityCaffe = By.xpath("//*[contains(text(), 'City caffe')]");
-		By ZagrebDubrava = By.xpath("//*[contains(text(), 'Zagreb Dubrava')]");
+		By ZagrebDubrava = By.xpath("//*[contains(text(), 'Rovinj')]");
 		By Title = By.cssSelector("section#mozzart div.popup-window.active > div > div.popup-body > p");
 		By Title1 = By.cssSelector("#bank-transfer > div.popup-window.active > div > div.popup-body > p");
 		By ZatvoriDugme = By.cssSelector("section#mozzart div.popup-window.active > div > div.popup-footer > div:nth-child(1)");

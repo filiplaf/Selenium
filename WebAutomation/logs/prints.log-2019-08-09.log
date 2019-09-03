@@ -1,0 +1,5 @@
+12:26:18.670 [main] INFO  resources.base - Brzzi tiket sa kodom: 6901728 možete uplatiti na bilo kojem MOZZART uplatnom mestu.
+13:21:19.071 [main] INFO  resources.base - Korisnik pera65 je uspesno ulogovan
+13:21:26.956 [main] INFO  resources.base - Tiket je poslat na verifikaciju! :Vaš tiket se upla?uje. Molimo pri?ekajte...
+13:21:36.987 [main] INFO  resources.base - Uplata tiketa sa iznosom od 20000.00 RSD nije mogu?a. Da li želite uplatiti tiket sa iznosom od 2000.00 RSD?
+13:21:44.158 [main] INFO  resources.base - Uspešno ste uplatili tiket. Stanje novca na vašem ra?unu iznosi: 99.034,57 RSD

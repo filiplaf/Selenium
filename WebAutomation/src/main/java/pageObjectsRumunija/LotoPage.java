@@ -9,38 +9,37 @@ public class LotoPage {
 		public WebDriver driver;
 		By GrckiLoto = By.partialLinkText("GRCKI");
 		//By GrckiLoto = By.xpath("//div[@class='dotted-border trigger']");
-		By GrckiLotoTime = By.cssSelector("ul#acc li:nth-child(2) > a");
-		By GrckiLotoKugla1 = By.id("cn6");
-		By GrckiLotoKugla2 = By.id("cn31");
-		By GrckiLotoKugla3 = By.id("cn69");
-		By GrckiLotoKugla4 = By.id("cn25");
-		By GrckiLotoKugla5 = By.id("cn11");
-		By GrckiLotoKugla6 = By.id("cn44");
-		By GrckiLotoKugla7 = By.id("cn23");
-		By GrckiLotoKugla8 = By.id("cn9");
+		By GrckiLotoTime = By.cssSelector("div#pageWrapper div:nth-child(2) > div > ul > li:nth-child(2)");
+		By GrckiLotoKugla1 = By.cssSelector("div#pageWrapper p:nth-child(23)");
+		By GrckiLotoKugla2 = By.cssSelector("div#pageWrapper p:nth-child(31)");
+		By GrckiLotoKugla3 = By.cssSelector("div#pageWrapper p:nth-child(69)");
+		By GrckiLotoKugla4 = By.cssSelector("div#pageWrapper p:nth-child(25)");
+		By GrckiLotoKugla5 = By.cssSelector("div#pageWrapper p:nth-child(11)");
+		By GrckiLotoKugla6 = By.cssSelector("div#pageWrapper p:nth-child(44)");
+		By GrckiLotoKugla7 = By.cssSelector("div#pageWrapper p:nth-child(24)");
+		By GrckiLotoKugla8 = By.cssSelector("div#pageWrapper p:nth-child(12)");
 		By ItalijanskiLoto = By.cssSelector(".dotted-border.trigger");
-		By ItalijanskiLotoTime = By.cssSelector("ul#acc li:nth-child(2) > a");
-		By ItalijanskiLotoKugla1 = By.id("cn6");
-		By ItalijanskiLotoKugla2 = By.id("cn31");
-		By ItalijanskiLotoKugla3 = By.id("cn69");
-		By ItalijanskiLotoKugla4 = By.id("cn25");
-		By ItalijanskiLotoKugla5 = By.id("cn11");
-		By ItalijanskiLotoKugla6 = By.id("cn44");
-		By ItalijanskiLotoKugla7 = By.id("cn23");
-		By ItalijanskiLotoKugla8 = By.id("cn9");
-		By uplata = By.cssSelector("div#lotto-ticket div:nth-child(6) > input");
-		By uplataSingl = By.cssSelector("div#lotto-additional-ticket input");
-		By uplataDugmeSingl = By.id("pay-button-additional");
-		By uplataDugme = By.id("pay-button");
-		By uplataDugme2 = By.cssSelector("div#lotto-ticket-popup-holder button");
-		By UreduDugme = By.cssSelector("div#lotto-ticket-popup-holder button.button.ok");
-		By title = By.cssSelector("#lotto-ticket-popup-holder > div.ticket-info-popup.lotto-info-popup");
-		By title2 = By.cssSelector("#lotto-ticket-popup-holder > div.ticket-info-popup.lotto-info-popup");
-		By sistemski = By.xpath("//*[@id=\"lotto-ticket\"]/div/div/div[3]/div/div[1]/label");
-		By singligra = By.xpath("//*[@id=\"lotto-game-26\"]/article[1]/div[2]/div/a");
-		By zbir = By.cssSelector("section#lotto-game-26 article:nth-child(1) > div.odds-holder.slider-odds.last > a");
+		By ItalijanskiLotoTime = By.cssSelector("div#pageWrapper div:nth-child(4) > div > ul > li:nth-child(2)");
+		By ItalijanskiLotoKugla1 = By.cssSelector("div#pageWrapper p:nth-child(23)");
+		By ItalijanskiLotoKugla2 = By.cssSelector("div#pageWrapper p:nth-child(31)");
+		By ItalijanskiLotoKugla3 = By.cssSelector("div#pageWrapper p:nth-child(69)");
+		By ItalijanskiLotoKugla4 = By.cssSelector("div#pageWrapper p:nth-child(25)");
+		By ItalijanskiLotoKugla5 = By.cssSelector("div#pageWrapper p:nth-child(11)");
+		By ItalijanskiLotoKugla6 = By.cssSelector("div#pageWrapper p:nth-child(44)");
+		By ItalijanskiLotoKugla7 = By.cssSelector("div#pageWrapper p:nth-child(24)");
+		By ItalijanskiLotoKugla8 = By.cssSelector("div#pageWrapper p:nth-child(12)");
+		By uplata = By.cssSelector("div#pageWrapper div.payment > input");
+		By uplataSingl = By.cssSelector("div#pageWrapper input");
+		By uplataDugmeSingl = By.id("pay-subgame-ticket");
+		By uplataDugme = By.id("pay-ticket");
+		By uplataDugme2 = By.cssSelector("div#pageWrapper div.actions > button");
+		By UreduDugme = By.cssSelector("div#pageWrapper button.button.close");
+		By title = By.cssSelector("div#pageWrapper div.message");
+		By sistemski = By.xpath("//*[@id=\"1\"]");
+		By singligra = By.cssSelector("div#pageWrapper div.lotto-sliders > div:nth-child(1) > div:nth-child(4)");
 		By closeTicket = By.cssSelector("div#lotto-ticket span.bt-clear-all.sprite-bg.close-small");
 		By confirmCloseTicket = By.cssSelector("div#lotto-ticket-popup-holder button.button.confirm_clear.ok");
+		By activeDugme = By.cssSelector("#pageWrapper > section > article > article.lotto-right-section > div > div.vb-content > section > section > section:nth-child(2) > article > div.summary > div.summary-header > div.payment > div > button");
 		
 		public LotoPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -128,14 +127,8 @@ public class LotoPage {
 		public WebElement title() {
 			return driver.findElement(title);
 		}
-		public WebElement title2() {
-			return driver.findElement(title2);
-		}
 		public WebElement sistemski() {
 			return driver.findElement(sistemski);
-		}
-		public WebElement zbir() {
-			return driver.findElement(zbir);
 		}
 		public WebElement uplataSingl() {
 			return driver.findElement(uplataSingl);
@@ -145,6 +138,9 @@ public class LotoPage {
 		}
 		public WebElement confirmCloseTicket() {
 			return driver.findElement(confirmCloseTicket);
+		}
+		public WebElement activeDugme() {
+			return driver.findElement(activeDugme);
 		}
 		
 }

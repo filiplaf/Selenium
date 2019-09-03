@@ -1,5 +1,4 @@
 package MozzartMalta;
-import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,7 +19,7 @@ public String newPassword = "8888888A";
 public String confirmPassword = newPassword;
 
 	@Test
-	public void PromenaPassworda() throws IOException, InterruptedException {
+	public void PromenaPassworda() throws InterruptedException  {
 		LandingPage lp = new LandingPage(driver);
 		ChangePassword cp = new ChangePassword(driver);
 		Login login = new Login();

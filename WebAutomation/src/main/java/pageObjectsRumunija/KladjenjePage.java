@@ -9,22 +9,22 @@ import org.openqa.selenium.WebElement;
 public class KladjenjePage {
 
 		public WebDriver driver;
-		By mec1 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(1) > td.odd.tooltip.i0");
-		By mec2 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(4) > td.odd.tooltip.i5");
-		By mec3 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(7) > td.odd.tooltip.i2.g0");
-		By mec4 = By.cssSelector("div#all-matches div:nth-child(4) > table > tbody > tr:nth-child(10) > td.odd.tooltip.i0");
-		By uplata = By.cssSelector("div#ordinary-ticket input#bt-input");
-		By uplataSistemski = By.cssSelector("div#system-ticket input#bt-input");
-		By uplataDugme = By.cssSelector("div#ordinary-ticket button");
-		By uplataDugmeSistemski = By.cssSelector("div#system-ticket button");
-		By uplataDugme2 = By.cssSelector("div#ticket-popup-holder button.button.pay");
-		By title = By.cssSelector("#ticket-popup-holder > div.ticket-info-popup");
-		By UreduDugme = By.cssSelector("div#ticket-popup-holder button.button.ok");
-		By sistemski = By.cssSelector("a#ui-id-3");
-		By checkbox = By.cssSelector("div#system-ticket div:nth-child(2) > label");
-		By checkbox1 = By.cssSelector("div#system-ticket div:nth-child(3) > label");
-		By izaberiBenefit = By.cssSelector("span#ui-id-8-button > span.ui-selectmenu-text");
-		By klikBenefit = By.cssSelector("div[class*='ui-selectmenu-menu'] ul li");
+		By mec1 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(2) > div > div.part2 > div:nth-child(1) > div:nth-child(1)");
+		By mec2 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(3) > div > div.part2 > div:nth-child(1) > div:nth-child(1)");
+		By mec3 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(4) > div > div.part2 > div:nth-child(3) > div:nth-child(2)");
+		By mec4 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(5) > div > div.part2 > div:nth-child(1) > div:nth-child(2)");
+		By uplata = By.cssSelector("input#bettingAmount");
+		By uplataSistemski = By.cssSelector("section#vbar-center div.payment > input");
+		By uplataDugme = By.cssSelector("button#pay-ticket");
+		By uplataDugmeSistemski = By.cssSelector("section#vbar-center button");
+		By uplataDugme2 = By.cssSelector("section#right button.button.pay");
+		By title = By.cssSelector("section#right div.message");
+		By UreduDugme = By.cssSelector("section#right button.button.close");
+		By sistemski = By.cssSelector("section#right div.pointer.system");
+		By checkbox = By.cssSelector("section#vbar-center div:nth-child(1) > input");
+		By checkbox1 = By.cssSelector("section#vbar-center div:nth-child(4) > input");
+		By izaberiBenefit = By.cssSelector("section#vbar-center div.benefits");
+		By klikBenefit = By.cssSelector("#vbar-center > div > div.summary-header > div.benefits > div");
 		By title1 = By.cssSelector("section#right div.message");
 		
 		public KladjenjePage(WebDriver driver) {

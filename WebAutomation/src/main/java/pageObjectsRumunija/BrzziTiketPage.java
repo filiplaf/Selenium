@@ -7,16 +7,17 @@ import org.openqa.selenium.WebElement;
 public class BrzziTiketPage {
 
 		public WebDriver driver;
-		By ObrisiDugme = By.cssSelector("span#bt-clear-all");
-		By mec1 = By.xpath("//*[@id=\"all-matches\"]/div[3]/table/tbody/tr[1]/td[2]");
-		By mec2 = By.xpath("//*[@id=\"all-matches\"]/div[3]/table/tbody/tr[4]/td[7]");
-		By mec3 = By.xpath("//*[@id=\"all-matches\"]/div[3]/table/tbody/tr[7]/td[2]");
-		By simplu = By.cssSelector("a#ui-id-2");
+		By ObrisiDugme = By.cssSelector("section#right div.pointer.clear-all > button");
+		By mec1 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(2) > div > div.part2 > div:nth-child(1) > div:nth-child(1)");
+		By mec2 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(3) > div > div.part2 > div:nth-child(1) > div:nth-child(1)");
+		By mec3 = By.cssSelector("div#focus div:nth-child(3) > div:nth-child(2) > article:nth-child(4) > div > div.part2 > div:nth-child(3) > div:nth-child(2)");
+		By simplu = By.xpath("//*[@id=\"right\"]/div/div[1]/section/section/header/div[2]/div[1]");
 		By uplata = By.cssSelector("input#bettingAmount");
-		By uplataDugme = By.cssSelector("div#ordinary-ticket button");
-		By BrzziTiketDugme = By.cssSelector("div#ticket-popup-holder button.button.send");
-		By title = By.cssSelector("div#ticket-popup-holder div.fast-ticket");
-		By UreduDugme = By.cssSelector("div#ticket-popup-holder button.button.ok");
+		By uplataDugme = By.cssSelector("button#pay-ticket");
+		By BrzziTiketDugme = By.cssSelector("section#right a");
+		By title = By.cssSelector("section#right div.message");
+		By title1 = By.cssSelector("section#right footer > div > p");
+		By UreduDugme = By.cssSelector("section#right button.button.close");
 		
 		public BrzziTiketPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -46,6 +47,9 @@ public class BrzziTiketPage {
 		}
 		public WebElement title() {
 			return driver.findElement(title);
+		}
+		public WebElement title1() {
+			return driver.findElement(title1);
 		}
 		public WebElement UreduDugme() {
 			return driver.findElement(UreduDugme);

@@ -14,12 +14,11 @@ import resources.base;
 public class Registracija extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 
-public String ime = "teeest59";
+public String ime = "test80";
 public String password = "8888888A";
-public String email = "teeeest@mailinator.com";
+public String email = "test80@yopmail.com";
 public String name = "Petar";
 public String surname = "Prvi";
-public String country = "Malta";
 public String street = "Takovska 45";
 public String zipcode = "11000";
 public String city = "Beograd";
@@ -31,6 +30,7 @@ public String phoneNumber = "111111";
 		driver.get(prop.getProperty("url3"));
 		LandingPage lp = new LandingPage(driver);
 		lp.znak().click();
+		lp.cookie().click();
 		lp.getRegistruj().click();
 		//Unosenje podataka
 		Thread.sleep(1000);
@@ -48,7 +48,7 @@ public String phoneNumber = "111111";
 		rp.Year1().click();
 		rp.BackArrow().click();
 		rp.BackArrow().click();
-		rp.PickYear().get(2).click();  //1992
+		rp.PickYear().get(9).click();  //1989
 		rp.PickMonth().get(0).click(); //january
 		//Day
 		for (int i=0; i<rp.PickDay().size(); i++) {
@@ -62,15 +62,6 @@ public String phoneNumber = "111111";
 		rp.Street().sendKeys(street);
 		rp.Zipcode().sendKeys(zipcode);
 		rp.City().sendKeys(city);
-		//Country selection
-		rp.Country().click();
-		for (int i=0; i<rp.CountrySelection().size(); i++) {
-			String temp = rp.CountrySelection().get(i).getText();
-			if(temp.equals(country)) {
-				rp.CountrySelection().get(i).click();
-				break;
-			}
-		}
 		//PhoneNumber
 		rp.PhoneNumber().sendKeys(phoneNumber);
 		//Gender
@@ -82,17 +73,13 @@ public String phoneNumber = "111111";
 		rp.RegisterButton().click();
 		Thread.sleep(1000);
 		String title = rp.Title().getText();
-		if(title.contains("You have successfully completed registration. Please check your email"))
+		if(title.contains("To complete you registration click the activation link in the email we just sent you."))
 			log.info("Verifikacioni mail je uspesno poslat");
 		else {
 			log.error("Verifikacioni mail nije uspesno poslat");
 		}
 		Thread.sleep(500);
 		rp.OkButton().click();
-	}
-	
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
 		driver.close();
 		driver.quit();
 	}

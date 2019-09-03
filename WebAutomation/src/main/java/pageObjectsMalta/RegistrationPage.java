@@ -25,15 +25,15 @@ public class RegistrationPage {
 		By Street = By.cssSelector("input#address");
 		By Zipcode = By.cssSelector("input#postCode");
 		By City = By.cssSelector("input#city");
-		By Country = By.cssSelector("div#pageWrapper div:nth-child(9) > div > div");
-		By CountrySelection = By.cssSelector("#pageWrapper > section > div > div.right > form > div:nth-child(9) > div > div.form__select__options > div");
+		By Country = By.cssSelector("#pageWrapper > section > div.step1 > div.right > form > div:nth-child(9) > div > div > div.vs__selected-options");
+		By CountrySelection = By.xpath("//*[contains(@class,'dropdown-menu')]");		
 		By PhoneNumber = By.cssSelector("input#phone");
 		By GenderMale = By.cssSelector("div#pageWrapper div.form__group.radio > div > label:nth-child(1) > span");
 		By GenderFemale = By.cssSelector("div#pageWrapper label:nth-child(2) > span");
 		By TermsOfUse = By.cssSelector("div#pageWrapper div:nth-child(13) > label > span");
 		By RecieveNews = By.cssSelector("div#pageWrapper div:nth-child(14) > label > span");
 		By RegisterButton = By.cssSelector("div#pageWrapper button[type=\"submit\"]");
-		By Title = By.cssSelector("#pageWrapper > section > div > div.right > div.overlay > div > div.modal__body > p");
+		By Title = By.cssSelector("#pageWrapper > section > div.step1 > div.right > div.overlay > div > div.modal__body > p");
 		By OkButton = By.cssSelector("#pageWrapper > section > div > div.right > div.overlay > div > div.modal__body > button");
 		
 		public RegistrationPage(WebDriver driver) {

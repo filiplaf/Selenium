@@ -17,20 +17,22 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 	public void Uplata() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
 		lp.getKladjenje().click();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		KladjenjePage kp = new KladjenjePage(driver);
 		kp.getmec1().click();
 		kp.getmec2().click();
 		kp.getmec3().click();
 		kp.getmec4().click();
 		kp.uplata().clear();
-		kp.uplata().sendKeys("020");
+		kp.uplata().sendKeys("20");
 		kp.uplataDugme().click();
 		kp.uplataDugme2().click();
-		Thread.sleep(30000);
+		Thread.sleep(20000);
 		String title = kp.title().getText();
-		if(title.contains("PLATA BILETULUI"))
+		if(title.contains("Bilet jucat cu succes.")) {
 			log.info("Tiket uspesno uplacen");
+			log.info(title);
+		}
 		else {
 			log.error("Tiket nije uplacen");
 		}

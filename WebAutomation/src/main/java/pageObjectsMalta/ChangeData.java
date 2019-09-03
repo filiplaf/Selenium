@@ -13,6 +13,7 @@ public class ChangeData {
 		By Phone = By.cssSelector("input#phone");
 		By SaveButton = By.cssSelector("div#account-wrapper button[type=\"submit\"]");
 		By OkButton = By.cssSelector("div#account-wrapper button[type=\"button\"]");
+		By Title = By.cssSelector("div#account-wrapper div.modal__body > p");
 		
 		public ChangeData(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -36,6 +37,9 @@ public class ChangeData {
 		}
 		public WebElement OkButton() {
 			return driver.findElement(OkButton);
+		}
+		public WebElement Title() {
+			return driver.findElement(Title);
 		}
 		
 }

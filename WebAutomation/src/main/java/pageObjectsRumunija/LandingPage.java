@@ -7,21 +7,24 @@ import org.openqa.selenium.WebElement;
 public class LandingPage {
 
 		public WebDriver driver;
-		By prijavite_se = By.cssSelector("div#user-box > a.log-in");
-		By korisnicko_ime = By.cssSelector("form#loginForm > input[name=\"username\"]");
-		By lozinka = By.cssSelector("form#loginForm > input[name=\"password\"]");
-		By prijavite_se_dugme = By.cssSelector("form#loginForm > a.button");
+		By prijavite_se = By.cssSelector("div#pageWrapper a.login-link");
+		By korisnicko_ime = By.cssSelector("div#pageWrapper input[type=\"text\"]:nth-child(2)");
+		By lozinka = By.cssSelector("div#pageWrapper input[type=\"password\"]:nth-child(3)");
+		By prijavite_se_dugme = By.cssSelector("div#pageWrapper button[type=\"submit\"]");
 		By title = By.cssSelector("div#spa header > div.title");
 		By header_navigation= By.cssSelector("#pageWrapper > header");
-		By name = By.cssSelector("div#user-box span.new-user-name");
-		By kladjenje = By.cssSelector("div#page li:nth-child(1) > a");
-		By loto = By.cssSelector("div#page li:nth-child(4) > a");
+		By name = By.cssSelector("div#pageWrapper div.balance-view.more-links > p");
+		By kladjenje = By.cssSelector("div#pageWrapper nav > div:nth-child(2) > a > span");
+		By lotoJocuri = By.cssSelector("div#pageWrapper nav > div:nth-child(4) > a > span");
+		By loto = By.cssSelector("div#pageWrapper div:nth-child(4) > div > div:nth-child(1) > a > span");
 		By grckiTombo = By.cssSelector("div#pageWrapper div:nth-child(6) > a");
 		By virtualNav = By.cssSelector("div#pageWrapper div:nth-child(8) > a > span");
 		By virtualFudbal = By.cssSelector("div#pageWrapper div:nth-child(8) > div > a:nth-child(1)");
-		By korisnik = By.xpath("//*[@id=\"pageWrapper\"]/div[1]/header/section[2]/div/div[1]/p");
-		By cont = By.cssSelector("div#user-box > a:nth-child(6)");
+		By korisnik = By.cssSelector("div#pageWrapper div.balance-view.more-links > p");
+		By cont = By.cssSelector("div#pageWrapper div.balance-view.more-links > div > a:nth-child(2)");
 		By registruj = By.cssSelector("div#pageWrapper a.register-link");
+		By znak = By.cssSelector("div#pageWrapper article > a > div");
+		By cookie = By.cssSelector("#gdpr-wrapper > div > div.accept-button > span");
 		
 		public LandingPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -52,6 +55,9 @@ public class LandingPage {
 		public WebElement getKladjenje() {
 			return driver.findElement(kladjenje);
 		}
+		public WebElement lotoJocuri() {
+			return driver.findElement(lotoJocuri);
+		}
 		public WebElement loto() {
 			return driver.findElement(loto);
 		}
@@ -72,5 +78,11 @@ public class LandingPage {
 		}
 		public WebElement getRegistruj() {
 			return driver.findElement(registruj);
+		}
+		public WebElement znak() {
+			return driver.findElement(znak);
+		}
+		public WebElement cookie() {
+			return driver.findElement(cookie);
 		}
 }

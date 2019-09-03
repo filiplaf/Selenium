@@ -15,7 +15,7 @@ public class KladjenjePage {
 		By uplataDugme = By.cssSelector("button#pay-ticket");
 		By uplataDugmeSistemski = By.cssSelector("section#right div.summary-body > button");
 		By uplataDugme2 = By.cssSelector("section#right button.button.pay");
-		By title = By.cssSelector("#right > div > div.vb-content > section > section > section.overlay > section > section > header > div > div.title");
+		By title = By.cssSelector("section#right div.message");
 		By UreduDugme = By.cssSelector("section#right button.button.close");
 		By sistemski = By.cssSelector("section#right div.pointer.system");
 		By checkbox = By.cssSelector("section#right div:nth-child(3) > input");
@@ -23,6 +23,7 @@ public class KladjenjePage {
 		By izaberiBenefit = By.cssSelector("section#vbar-center div.benefits");
 		By klikBenefit = By.xpath("//*[@id=\"vbar-center\"]/div/div[1]/div[2]/div/p[2]");
 		By title1 = By.cssSelector("#right > div > div.vb-content > section > section > section.overlay > section > section > footer > article > div > div.message");
+		By benefitText = By.cssSelector("section#vbar-center div.benefits > div > p:nth-child(2)");
 		
 		public KladjenjePage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -76,6 +77,9 @@ public class KladjenjePage {
 		}
 		public WebElement title1() {
 			return driver.findElement(title1);
+		}
+		public WebElement benefitText() {
+			return driver.findElement(benefitText);
 		}
 		
 }

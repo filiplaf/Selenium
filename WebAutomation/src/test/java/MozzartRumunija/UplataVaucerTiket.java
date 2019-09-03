@@ -18,7 +18,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		LandingPage lp = new LandingPage(driver);
 		//Thread.sleep(1000);
 		lp.getKladjenje().click();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		KladjenjePage kp = new KladjenjePage(driver);
 		kp.getmec1().click();
 		kp.getmec2().click();
@@ -27,13 +27,15 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		Thread.sleep(5000);
 		kp.izaberiBenefit().click();
 		Thread.sleep(5000);
-		kp.klikBenefit().get(1).click();
+		kp.klikBenefit().get(0).click();
 		kp.uplataDugme().click();
 		kp.uplataDugme2().click();
 		Thread.sleep(30000);
 		String title = kp.title().getText();
-		if(title.contains("BILET JUCAT CU SUCCES"))
+		if(title.contains("Bilet jucat cu succes.")) {
 			log.info("Vaucer tiket uspesno uplacen");
+			log.info(title);
+		}
 		else {
 			log.error("Vaucer tiket nije uplacen");
 		}

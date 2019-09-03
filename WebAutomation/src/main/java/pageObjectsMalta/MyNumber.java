@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 public class MyNumber {
 
 		public WebDriver driver;
-		By GrckiLotoTime = By.cssSelector("div#pageWrapper div:nth-child(2) > ul > li:nth-child(2)");
+		By GrckiLotoTime = By.cssSelector("div#pageWrapper li:nth-child(2)");
 		By GrckiLotoKugla1 = By.cssSelector("div#pageWrapper p:nth-child(24)");
 		By GrckiLotoKugla2 = By.cssSelector("div#pageWrapper p:nth-child(28)");
-		By GrckiLotoKugla3 = By.cssSelector("div#spa p:nth-child(56) > span.n");
+		By GrckiLotoKugla3 = By.cssSelector("div#pageWrapper p:nth-child(56)");
 		By ItalijanskiLotoTime = By.cssSelector("div#pageWrapper div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(2)");
 		By ItalijanskiLotoKugla1 = By.cssSelector("div#spa p:nth-child(46) > span.n");
 		By ItalijanskiLotoKugla2 = By.cssSelector("div#spa p:nth-child(68) > span.n");
@@ -19,10 +19,10 @@ public class MyNumber {
 		By uplataSingl = By.xpath("//*[@id=\"pay-subgame-ticket\"]");
 		By uplataDugme = By.id("pay-ticket");
 		By uplataDugme2 = By.cssSelector("div#pageWrapper div.actions > button");
+		By uplataDugme3 = By.cssSelector("button#pay-subgame-ticket");
+		By uplataDugme4 = By.cssSelector("div#pageWrapper div.actions > button");
 		By UreduDugme = By.cssSelector("div#spa button.button.close");
-		By title = By.xpath("//*[contains(text(), My number | GREEK KENO (20/80) | Draw time: ')]");
-		By title2 = By.xpath("//*[contains(text(), 'Moj broj | ITALIJANSKI')]");
-		By title3 = By.cssSelector("div#pageWrapper div.message");
+		By title = By.cssSelector("div#pageWrapper div.message");
 		By sistemski = By.cssSelector("div#pageWrapper div:nth-child(2) > input");
 		By zbir = By.cssSelector("div#pageWrapper div.lotto-sliders > div:nth-child(1) > div:nth-child(4)");
 		
@@ -65,17 +65,17 @@ public class MyNumber {
 		public WebElement uplataDugme2() {
 			return driver.findElement(uplataDugme2);
 		}
+		public WebElement uplataDugme3() {
+			return driver.findElement(uplataDugme3);
+		}
+		public WebElement uplataDugme4() {
+			return driver.findElement(uplataDugme4);
+		}
 		public WebElement UreduDugme() {
 			return driver.findElement(UreduDugme);
 		}
 		public WebElement title() {
 			return driver.findElement(title);
-		}
-		public WebElement title2() {
-			return driver.findElement(title2);
-		}
-		public WebElement title3() {
-			return driver.findElement(title3);
 		}
 		public WebElement sistemski() {
 			return driver.findElement(sistemski);

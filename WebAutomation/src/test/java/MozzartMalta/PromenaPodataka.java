@@ -1,6 +1,7 @@
 package MozzartMalta;
 import java.io.IOException;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.interactions.Actions;
@@ -15,10 +16,7 @@ import resources.base;
 public class PromenaPodataka extends base{
 public static Logger log = LogManager.getLogger(base.class.getName());
 
-public String Street = "Takovska 41";
-public String Zipcode = "11002";
 public String City = "Belgrade";
-public String Phone = "123456";
 
 	@Test
 	public void PromenaPodataka() throws IOException, InterruptedException {
@@ -28,18 +26,21 @@ public String Phone = "123456";
 		lp.account().click();
 		MojRacun mr = new MojRacun(driver);
 		mr.ChangeData().click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		ChangeData cd = new ChangeData(driver);
 		cd.Street().clear();
-		cd.Street().sendKeys(Street);
+		cd.Street().sendKeys("Takovska " + RandomStringUtils.randomNumeric(2));  //Za random broj pored adrese
 		cd.Zipcode().clear();
-		cd.Zipcode().sendKeys(Zipcode);
+		cd.Zipcode().sendKeys(RandomStringUtils.randomNumeric(5));
 		cd.City().clear();
 		cd.City().sendKeys(City);
 		cd.Phone().clear();
-		cd.Phone().sendKeys(Phone);
+		cd.Phone().sendKeys(RandomStringUtils.randomNumeric(6));
 		Thread.sleep(1000);
 		cd.SaveButton().click();
+		Thread.sleep(3000);
+		String title = cd.Title().getText();
+		log.info(title);
 		cd.OkButton().click();
 		log.info("Podaci su promenjeni");
 	}

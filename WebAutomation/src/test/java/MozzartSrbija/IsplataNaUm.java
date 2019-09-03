@@ -19,7 +19,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 	public void Isplata() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
 		Actions action = new Actions(driver);
-		action.moveToElement(lp.user()).perform();
+		action.moveToElement(lp.getUser()).perform();
 		lp.getMojracun().click();
 		MojRacun mr = new MojRacun(driver);
 		mr.Isplata().click();

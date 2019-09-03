@@ -3,6 +3,7 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -16,14 +17,18 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 	@Test
 	public void Uplata() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
+		Actions action = new Actions(driver);
+		action.moveToElement(lp.lottoGames()).perform();
 		lp.getLuckyG().click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		LuckyG gt = new LuckyG(driver);
-		
+		lp.getlotto().click();
+		Thread.sleep(2000);
+		lp.getLuckyG().click();
+		Thread.sleep(2000);
 		//G2 tiket
 		gt.GrckiTombo2().click();
 		Thread.sleep(1000);
-		gt.GrckiTombo2Time().click();
 		gt.GrckiTombo2Kugla1().click();
 		gt.GrckiTombo2Kugla2().click();
 		gt.uplata().clear();

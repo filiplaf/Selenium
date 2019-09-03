@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MozzartSrbija.SetovanjeTekucegRacuna">
+      <class name="MozzartSrbija.ProveraBalansa">
         <methods>
           <include name="teardown"/>
-          <include name="Setovanje"/>
+          <include name="Balans"/>
         </methods>
-      </class> <!-- MozzartSrbija.SetovanjeTekucegRacuna -->
+      </class> <!-- MozzartSrbija.ProveraBalansa -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

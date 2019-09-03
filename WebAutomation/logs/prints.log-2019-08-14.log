@@ -1,0 +1,6 @@
+13:55:38.068 [main] INFO  resources.base - Uspešno ste uplatili tiket. Stanje novca na vašem ra?unu iznosi: 98.800,00 RSD
+13:55:43.798 [main] INFO  resources.base - Brzzi tiket sa kodom: 3757959 možete uplatiti na bilo kojem MOZZART uplatnom mestu.
+13:55:47.700 [main] INFO  resources.base - Grcki kino uspesno uplacen
+13:55:51.716 [main] INFO  resources.base - Grcki sistemski kino uspesno uplacen
+13:55:56.508 [main] INFO  resources.base - Grcki kino singl zbir veci od 20 uspesno uplacen
+13:56:13.650 [main] INFO  resources.base - G2 tiket uspesno uplacen

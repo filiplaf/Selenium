@@ -3,7 +3,7 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import pageObjectsSrbija.LandingPage;
@@ -16,6 +16,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 	@Test
 	public void UplataGrckiloto() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
+		Actions action = new Actions(driver);
+		action.moveToElement(lp.getIgreNaBrojeve()).perform();
 		lp.getMojBroj().click();
 		Thread.sleep(1000);
 		LotoPage loto = new LotoPage(driver);
@@ -29,10 +31,12 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		loto.uplata().sendKeys("30");
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String title = loto.title().getText();
-		if(title.contains("Moj broj | GRCKI KINO (20/80)"))
+		if(title.contains("Uspešno ste uplatili tiket.")) {
 			log.info("Grcki kino uspesno uplacen");
+			log.info(title);
+		}
 		else {
 			log.error("Grcki kino nije uplacen");
 		}
@@ -45,10 +49,12 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		loto.sistemski().click();
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String title2 = loto.title().getText();
-		if(title2.contains("Moj broj | GRCKI KINO (20/80)"))
+		if(title2.contains("Uspešno ste uplatili tiket.")) {
 			log.info("Grcki sistemski kino uspesno uplacen");
+			log.info(title2);
+		}
 		else {
 			log.error("Grcki sistemski kino nije uplacen");
 		}
@@ -62,59 +68,61 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		Thread.sleep(1000);
 		loto.uplataSingl().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String title3 = loto.title().getText();
-		if(title3.contains("Moj broj | GRCKI KINO (20/80)"))
+		if(title3.contains("Uspešno ste uplatili tiket.")) {
 			log.info("Grcki kino singl zbir veci od 20 uspesno uplacen");
+			log.info(title3);
+		}
 		else {
-			log.error("Grcki kino singl zbir veci od 20 uspesno uplacen");
+			log.error("Grcki kino singl zbir veci od 20 nije uplacen");
 		}
 		loto.UreduDugme().click();
 		}
 		
-		@Test
-		public void UplataItalijanskiloto() throws IOException, InterruptedException {
-		LandingPage lp = new LandingPage(driver);
-		lp.getMojBroj().click();
-		Thread.sleep(1000);
-		LotoPage loto = new LotoPage(driver);
+//		@Test
+//		public void UplataItalijanskiloto() throws IOException, InterruptedException {
+//		LandingPage lp = new LandingPage(driver);
+//		lp.getMojBroj().click();
+//		Thread.sleep(1000);
+//		LotoPage loto = new LotoPage(driver);
+//		
+//		//obican italijanski loto tiket
+//		loto.ItalijanskiLotoTime().click();
+//		loto.ItalijanskiLotoKugla1().click();
+//		loto.ItalijanskiLotoKugla2().click();
+//		loto.ItalijanskiLotoKugla3().click();;
+//		loto.uplataDugme().click();
+//		loto.uplataDugme2().click();
+//		Thread.sleep(2000);
+//		String title4 = loto.title2().getText();
+//		if(title4.contains("Moj broj | ITALIJANSKI"))
+//			log.info("Italijanski kino uspesno uplacen");
+//		else {
+//			log.error("Italijanski kino nije uplacen");
+//		}
+//		loto.UreduDugme().click();
+//		//sistemski italijanski loto tiket
+//		loto.ItalijanskiLotoKugla1().click();
+//		loto.ItalijanskiLotoKugla2().click();
+//		loto.ItalijanskiLotoKugla3().click();
+//		loto.sistemski().click();
+//		loto.uplataDugme().click();
+//		loto.uplataDugme2().click();
+//		Thread.sleep(2000);
+//		String title5 = loto.title2().getText();
+//		if(title5.contains("Moj broj | ITALIJANSKI"))
+//			log.info("Italijanski sistemski kino uspesno uplacen");
+//		else {
+//			log.info("Italijanski sistemski kino nije uplacen");
+//		}
+//		loto.UreduDugme().click();
+//		}
 		
-		//obican italijanski loto tiket
-		loto.ItalijanskiLotoTime().click();
-		loto.ItalijanskiLotoKugla1().click();
-		loto.ItalijanskiLotoKugla2().click();
-		loto.ItalijanskiLotoKugla3().click();;
-		loto.uplataDugme().click();
-		loto.uplataDugme2().click();
-		Thread.sleep(2000);
-		String title4 = loto.title2().getText();
-		if(title4.contains("Moj broj | ITALIJANSKI"))
-			log.info("Italijanski kino uspesno uplacen");
-		else {
-			log.error("Italijanski kino nije uplacen");
-		}
-		loto.UreduDugme().click();
-		//sistemski italijanski loto tiket
-		loto.ItalijanskiLotoKugla1().click();
-		loto.ItalijanskiLotoKugla2().click();
-		loto.ItalijanskiLotoKugla3().click();
-		loto.sistemski().click();
-		loto.uplataDugme().click();
-		loto.uplataDugme2().click();
-		Thread.sleep(2000);
-		String title5 = loto.title2().getText();
-		if(title5.contains("Moj broj | ITALIJANSKI"))
-			log.info("Italijanski sistemski kino uspesno uplacen");
-		else {
-			log.info("Italijanski sistemski kino nije uplacen");
-		}
-		loto.UreduDugme().click();
-		}
-		
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
+//	@AfterTest(alwaysRun = true)
+//	public void teardown() {
 //		driver.close();
 //		driver.quit();
-	}
+//	}
 
 }

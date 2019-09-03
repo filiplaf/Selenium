@@ -23,6 +23,11 @@ public class LandingPage {
 		By mojRacun = By.cssSelector("div#pageWrapper div.balance-view.more-links > div > a:nth-child(2)");
 		By registruj = By.cssSelector("div#pageWrapper a.register-link");
 		By znak = By.cssSelector("article.content > a:nth-child(1) > div:nth-child(1)");
+		By cookie = By.cssSelector("#gdpr-wrapper > div > div.accept-button");
+		By Loto = By.cssSelector("div#pageWrapper div:nth-child(5) > a > span");
+		By LotoNav = By.cssSelector("div#pageWrapper div:nth-child(5) > div > div:nth-child(1) > a > span");
+		By LuckyG = By.cssSelector("div#pageWrapper div:nth-child(5) > div > div:nth-child(2) > a > span");
+		
 		
 		public LandingPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -76,5 +81,17 @@ public class LandingPage {
 		}
 		public WebElement znak() {
 			return driver.findElement(znak);
+		}
+		public WebElement Cookie() {
+			return driver.findElement(cookie);
+		}
+		public WebElement Loto() {
+			return driver.findElement(Loto);
+		}
+		public WebElement LotoNav() {
+			return driver.findElement(LotoNav);
+		}
+		public WebElement LuckyG() {
+			return driver.findElement(LuckyG);
 		}
 }

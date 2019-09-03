@@ -22,6 +22,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		action.moveToElement(lp.getnameNavigation()).perform();
 		lp.getMojracun().click();
 		MojRacun mr = new MojRacun(driver);
+		Thread.sleep(1000);
 		mr.Transakcije().click();
 		Thread.sleep(2000);
 		String x = mr.NoTransactionTitle().getText();

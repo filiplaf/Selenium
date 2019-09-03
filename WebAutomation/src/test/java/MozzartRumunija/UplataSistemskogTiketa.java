@@ -20,15 +20,17 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		kp.checkbox().click();
 		kp.checkbox1().click();
 		kp.uplataSistemski().clear();
-		kp.uplataSistemski().sendKeys("020");
+		kp.uplataSistemski().sendKeys("20");
 		kp.uplataDugmeSistemski().click();
 		kp.uplataDugme2().click();
 		Thread.sleep(20000);
 		String title = kp.title().getText();
-		if(title.contains("PLATA BILETULUI"))
+		if(title.contains("Bilet jucat cu succes.")) {
 			log.info("Sistemski tiket uspesno uplacen");
+			log.info(title);
+		}
 		else {
-			log.error("Sistemski tiket nije uplacen");
+			log.error("Tiket nije uplacen");
 		}
 		kp.UreduDugme().click();
 		}

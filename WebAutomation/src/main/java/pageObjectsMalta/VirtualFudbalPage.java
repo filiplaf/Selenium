@@ -14,7 +14,7 @@ public class VirtualFudbalPage {
 		By uplataDugme = By.id("live-pay-button");
 		By uplataDugme2 = By.cssSelector("div#ticket-popup-holder button");
 		By UreduDugme = By.cssSelector("div#ticket-popup-holder button.button.ok");
-		//By title = By.xpath("//*[contains(text(), 'Uspešno ste uplatili tiket.')]");
+		By title = By.cssSelector("div#ticket-popup-holder div.pay-info");
 		
 		public VirtualFudbalPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -42,7 +42,7 @@ public class VirtualFudbalPage {
 		public WebElement UreduDugme() {
 			return driver.findElement(UreduDugme);
 		}
-//		public WebElement title() {
-//			return driver.findElement(title);
-//		}
+		public WebElement title() {
+			return driver.findElement(title);
+		}
 }

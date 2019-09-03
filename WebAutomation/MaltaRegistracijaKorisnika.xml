@@ -9,14 +9,9 @@
 
    <test thread-count="5" name="Registracija korisnika">
     <classes>
-      <class name="MozzartMalta.Registracija"/>    
+      <class name="MozzartMalta.Registracija"/>   
+      <class name="MozzartMalta.PotvrdaMaila"/>  
      </classes>
    </test>
-  <test thread-count="5" name="Aktivacija korisnika">
-     <classes>
-      <class name="MozzartMalta.PotvrdaMaila"/>    
-     </classes>
-     
-  </test>
  <!-- Test -->
 </suite> <!-- Suite -->

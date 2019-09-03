@@ -33,7 +33,9 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		Thread.sleep(10000);
 		String title1 = kv.title().getText();
 		log.info(title1);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
+		try {
+		if(kv.accept().isDisplayed()) {
 		kv.accept().click();
 		kv.Accept1().click();
 		Thread.sleep(5000);
@@ -41,8 +43,20 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		log.info(title2);
 		log.info("Tiket nakon verifikovanja je uspesno uplacen");
 		kv.closeDugme().click();
-
-		
+		}
+		else {
+			String title3 = kv.title().getText();
+			log.info(title3);
+			log.info("Tiket nakon verifikovanja je uspesno uplacen");
+			kv.closeDugme().click();
+		}
+		}
+		catch (Exception e) {
+			String title3 = kv.title().getText();
+			log.info(title3);
+			log.info("Tiket nakon verifikovanja je uspesno uplacen");
+			kv.closeDugme().click();
+		}	
 		}
 	@AfterTest(alwaysRun = true)
 	public void teardown() {

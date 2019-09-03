@@ -23,7 +23,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		kp.uplataDugme2().click();
 		Thread.sleep(5000);
 		String title = kp.title().getText();
-		if(title.contains("Aktivan tiket"))
+		if(title.contains("Uspešno ste uplatili tiket"))
 			log.info("Sistemski tiket uspesno uplacen");
 		else {
 			log.error("Sistemski tiket nije uplacen");

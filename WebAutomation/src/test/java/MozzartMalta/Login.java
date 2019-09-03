@@ -27,6 +27,7 @@ public String password = "8888888A";
 		lp.getKorisnik().sendKeys(Username);
 		lp.getpassword().sendKeys(Password);
 		lp.loginbutton().click();
+		lp.cookie().click();
 		String Ime = lp.user().getText();
 		log.info("Korisnik " +Ime+ " je uspesno ulogovan");
 	}
