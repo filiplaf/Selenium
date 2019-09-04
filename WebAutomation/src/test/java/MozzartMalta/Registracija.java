@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import pageObjectsMalta.LandingPage;
@@ -14,9 +13,9 @@ import resources.base;
 public class Registracija extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 
-public String ime = "test80";
+public String ime = "test81";
 public String password = "8888888A";
-public String email = "test80@yopmail.com";
+public String email = "test81@yopmail.com";
 public String name = "Petar";
 public String surname = "Prvi";
 public String street = "Takovska 45";

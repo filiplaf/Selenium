@@ -2,25 +2,25 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="13946" started-at="2019-09-04T11:02:36Z" finished-at="2019-09-04T11:02:50Z">
+  <suite name="Suite" duration-ms="20660" started-at="2019-09-04T12:12:20Z" finished-at="2019-09-04T12:12:40Z">
     <groups>
       <group name="Login.test">
-        <method signature="Login.MozzartHomePage(java.lang.String, java.lang.String)[pri:0, instance:MozzartMalta.Login@30e143ff]" name="MozzartHomePage" class="MozzartMalta.Login"/>
+        <method signature="Login.MozzartHomePage(java.lang.String, java.lang.String)[pri:0, instance:MozzartSrbija.Login@b267745]" name="MozzartHomePage" class="MozzartSrbija.Login"/>
       </group> <!-- Login.test -->
     </groups>
-    <test name="Promena Podataka za korisnika" duration-ms="13946" started-at="2019-09-04T11:02:36Z" finished-at="2019-09-04T11:02:50Z">
-      <class name="MozzartMalta.PromenaPassworda">
-        <test-method status="PASS" signature="PromenaPassworda()[pri:0, instance:MozzartMalta.PromenaPassworda@452ec287]" name="PromenaPassworda" duration-ms="3807" started-at="2019-09-04T11:02:46Z" finished-at="2019-09-04T11:02:50Z">
+    <test name="Logovanje korisnika i uplata svih tipova tiketa" duration-ms="20660" started-at="2019-09-04T12:12:20Z" finished-at="2019-09-04T12:12:40Z">
+      <class name="MozzartSrbija.UplataVaucerTiket">
+        <test-method status="PASS" signature="Uplata()[pri:0, instance:MozzartSrbija.UplataVaucerTiket@31e22365]" name="Uplata" duration-ms="7046" started-at="2019-09-04T12:12:29Z" finished-at="2019-09-04T12:12:36Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PromenaPassworda -->
-      </class> <!-- MozzartMalta.PromenaPassworda -->
-      <class name="MozzartMalta.Login">
-        <test-method status="PASS" signature="MozzartHomePage(java.lang.String, java.lang.String)[pri:0, instance:MozzartMalta.Login@30e143ff]" name="MozzartHomePage" duration-ms="9438" started-at="2019-09-04T11:02:36Z" data-provider="getData" finished-at="2019-09-04T11:02:46Z">
+        </test-method> <!-- Uplata -->
+      </class> <!-- MozzartSrbija.UplataVaucerTiket -->
+      <class name="MozzartSrbija.Login">
+        <test-method status="PASS" signature="MozzartHomePage(java.lang.String, java.lang.String)[pri:0, instance:MozzartSrbija.Login@b267745]" name="MozzartHomePage" duration-ms="8895" started-at="2019-09-04T12:12:20Z" data-provider="getData" finished-at="2019-09-04T12:12:29Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[pera59]]>
+                <![CDATA[pera68]]>
               </value>
             </param>
             <param index="1">
@@ -32,15 +32,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MozzartHomePage -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:MozzartMalta.PromenaPassworda@452ec287]" name="teardown" is-config="true" duration-ms="648" started-at="2019-09-04T11:02:50Z" finished-at="2019-09-04T11:02:50Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:MozzartSrbija.Login@b267745]" name="teardown" is-config="true" duration-ms="0" started-at="2019-09-04T12:12:36Z" finished-at="2019-09-04T12:12:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:MozzartMalta.Login@30e143ff]" name="teardown" is-config="true" duration-ms="0" started-at="2019-09-04T11:02:50Z" finished-at="2019-09-04T11:02:50Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:MozzartSrbija.UplataVaucerTiket@31e22365]" name="teardown" is-config="true" duration-ms="4669" started-at="2019-09-04T12:12:36Z" finished-at="2019-09-04T12:12:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- MozzartMalta.Login -->
-    </test> <!-- Promena Podataka za korisnika -->
+      </class> <!-- MozzartSrbija.Login -->
+    </test> <!-- Logovanje korisnika i uplata svih tipova tiketa -->
   </suite> <!-- Suite -->
 </testng-results>
