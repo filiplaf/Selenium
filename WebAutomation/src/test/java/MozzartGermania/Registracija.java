@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import pageObjectsGermania.LandingPage;
@@ -19,8 +18,8 @@ import resources.base;
 public class Registracija extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 
-public String KorisnickoIme = "test75";
-public String email = "test75@mailinator.com";
+public String KorisnickoIme = "test76";
+public String email = "test76@mailinator.com";
 public String lozinka = "8888888A";
 public String ime = "Petar";
 public String prezime = "Prvi";

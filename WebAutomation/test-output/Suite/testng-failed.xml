@@ -2,17 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <listeners>
-    <listener class-name="MozzartSrbija.listeners"/>
+    <listener class-name="MozzartMalta.listeners"/>
     <listener class-name="resources.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="Logovanje korisnika i uplata svih tipova tiketa(failed)">
+  <test thread-count="5" name="Pregled transakcija za tekuci mesec(failed)">
     <classes>
-      <class name="MozzartSrbija.UplataVaucerTiket">
+      <class name="MozzartMalta.PregledTransakcija">
         <methods>
           <include name="teardown"/>
-          <include name="Uplata"/>
+          <include name="Transakcije"/>
         </methods>
-      </class> <!-- MozzartSrbija.UplataVaucerTiket -->
+      </class> <!-- MozzartMalta.PregledTransakcija -->
     </classes>
-  </test> <!-- Logovanje korisnika i uplata svih tipova tiketa(failed) -->
+  </test> <!-- Pregled transakcija za tekuci mesec(failed) -->
 </suite> <!-- Failed suite [Suite] -->

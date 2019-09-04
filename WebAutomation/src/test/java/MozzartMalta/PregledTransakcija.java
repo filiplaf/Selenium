@@ -30,6 +30,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 			mr.Kalendar().click();
 			boolean isPresent = driver.findElements(By.cssSelector(".cell.day.highlighted")).size()>0;
 			if(isPresent) {
+				mr.TransactionExist().click();
+				Thread.sleep(2000);
 				log.info("Ima transakcija u ovom mesecu");
 			}
 			else {
@@ -41,8 +43,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 			mr.Kalendar().click();
 			if(mr.TransactionExist().isEnabled()) {
 				mr.TransactionExist().click();
-				log.info("Ima transakcija u ovom mesecu");
 				Thread.sleep(2000);
+				log.info("Ima transakcija u ovom mesecu");
 			}
 	}
 	}

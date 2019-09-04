@@ -28,7 +28,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		mr.Um().click();
 		
 		//Isplata na CityCaffe UM
-		mr.CityCaffe().click();
+		mr.Rovinj().click();
 		mr.Iznos().sendKeys("100");
 		Thread.sleep(1000);
 		mr.Isplati().click();

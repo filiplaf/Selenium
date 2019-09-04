@@ -16,8 +16,8 @@ public class MojRacun {
 		By Isplati = By.id("pay-btn-mozzart");
 		By IsplatiNaTekuci = By.id("pay-btn-bank");
 		By Um = By.cssSelector("section#mozzart div.vs__selected-options > input");
-		By CityCaffe = By.xpath("//*[contains(text(), 'City caffe')]");
-		By ZagrebDubrava = By.xpath("//*[contains(text(), 'Rovinj')]");
+		By Rovinj = By.xpath("//*[contains(text(), 'Rovinj')]");
+		By ZagrebDubrava = By.xpath("//*[contains(text(), 'Zagreb Dubrava')]");
 		By Title = By.cssSelector("section#mozzart div.popup-window.active > div > div.popup-body > p");
 		By Title1 = By.cssSelector("#bank-transfer > div.popup-window.active > div > div.popup-body > p");
 		By ZatvoriDugme = By.cssSelector("section#mozzart div.popup-window.active > div > div.popup-footer > div:nth-child(1)");
@@ -60,8 +60,8 @@ public class MojRacun {
 		public WebElement Um() {
 			return driver.findElement(Um);
 		}
-		public WebElement CityCaffe() {
-			return driver.findElement(CityCaffe);
+		public WebElement Rovinj() {
+			return driver.findElement(Rovinj);
 		}
 		public WebElement ZagrebDubrava() {
 			return driver.findElement(ZagrebDubrava);
