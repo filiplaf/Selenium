@@ -1,12 +1,18 @@
 package MozzartSrbija;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -15,17 +21,16 @@ import MozzartSrbija.Login;
 import resources.base;
 
 public class Podaci_Baza extends base {
+public static Logger log = LogManager.getLogger(base.class.getName());
 
 	   private Connection connection;
-	   private static Statement statement;
 	   private static ResultSet rs;
 	   private String lc_member;
-	   public String balance_after;
-	   public static Integer balance_after1;
+	   public int balance_after;
 
 	    @BeforeClass
 	    public void setUp() {
-	            String databaseURL = "jdbc:oracle:thin:@192.168.179.101:1521:CSDB6";
+	            String databaseURL = "jdbc:oracle:thin:@192.168.179.101:1521/CSDB6";
 	            String user = "telebet";
 	            String password = "innovation789";
 	            connection = null;
@@ -34,7 +39,7 @@ public class Podaci_Baza extends base {
 	                System.out.println("Connecting to Database...");
 	                connection = DriverManager.getConnection(databaseURL, user, password);
 	                if (connection != null) {
-	                    System.out.println("Connected to the Database...");
+	                	System.out.println("Connected to the Database...");
 	                }
 	            } catch (SQLException ex) {
 	               ex.printStackTrace();
@@ -45,10 +50,10 @@ public class Podaci_Baza extends base {
 	    }
 
 	    @Test (priority = 0)
-	    public void ID(){
+	    public void id(){
 	    	Login login = new Login();
 	        try {
-	            String query = "select * from lcmember where username = ? and ADDRESS = ?";
+	            String query = "select * from lcmember where username = ? and address = ? ";
 	            PreparedStatement statement = connection.prepareStatement(query);
 	            statement.setString(1, login.username);
 	            statement.setString(2, "Takovska 45");
@@ -57,14 +62,13 @@ public class Podaci_Baza extends base {
 	            String ID = rsmd.getColumnName(1);
 	            String FirstName = rsmd.getColumnName(3);
 	            String LastName = rsmd.getColumnName(4);
-	            String BankAccount = rsmd.getColumnName(31);
 	            
 	            while(rs.next()){
 	            	lc_member = rs.getString("ID");
 	            	System.out.println(ID + " " + rs.getLong("ID"));
 	            	System.out.println(FirstName + " " + rs.getString("FIRSTNAME"));
 	            	System.out.println(LastName + " " + rs.getString("LASTNAME"));
-	            	System.out.println(BankAccount + " " + rs.getString("BANKACCOUNT"));
+	            	
 	            }
 	            
 	        } catch (SQLException ex) {
@@ -72,31 +76,51 @@ public class Podaci_Baza extends base {
 	        }
 	    }
 	    
-	    @Test (priority = 1, dependsOnMethods={"ID"})
-	    public void Balance() throws SQLException {
-	    	 String query = "select * from (select * from WEBSUM.ACCOUNT_DOCS where LC_MEMBER_ID = ? order by DATE_OF DESC) where ROWNUM=1";
+	    @Test (priority = 1, dependsOnMethods={"id"})
+	    public void balance() throws SQLException, IOException {
+	    	 String query = "select * from (select * from WALLETUSR.CUSTOMER_BALANCE where CUSTOMER_ID = ? order by ID) where ROWNUM=1";
 	    	 PreparedStatement statement = connection.prepareStatement(query);
 	         statement.setString(1,lc_member);
 	         rs = statement.executeQuery();
 	         
 	         java.sql.ResultSetMetaData rsmd = rs.getMetaData();
-	         String Balance_after = rsmd.getColumnName(21);
+	         String Balance_after = rsmd.getColumnName(9);
 	         while(rs.next()){
-	        	balance_after = rs.getString("BALANCE_AFTER");
-	            System.out.println(Balance_after + " " + rs.getString("BALANCE_AFTER"));
-	            System.out.println(balance_after);
-	            int balanse_after1 = Integer.parseInt((balance_after.replaceAll("[^0-9]", "")));
-	            System.out.println("balans after 1 je " + balanse_after1);
+	        	 // Izvlacim iz baze int iz kolone BALANCE da bih mogao posle da uporedjujem!!
+	        	balance_after = rs.getInt("BALANCE");
+	        	log.info(Balance_after + " u bazi je " + rs.getString("BALANCE"));
 	            }
 	    	}	
 	    
+	    @Test(priority = 2)
+	    public void testBalance() {
+			try {
+				FileInputStream fstream = new FileInputStream("C:\\Git workspace\\Selenium\\WebAutomation\\src\\main\\java\\resources\\balans.txt");
+				DataInputStream in = new DataInputStream(fstream);
+				BufferedReader br = new BufferedReader(new InputStreamReader(in));
+				String srtLine;
+				while ((srtLine = br.readLine()) !=null) {
+				int num1 = Integer.parseInt(srtLine.replaceAll("[^0-9]", ""));
+				if(num1==balance_after) {
+					log.info("Balans na webu je isti kao i balans u bazi");
+				}
+				else {
+					log.info("Balansi se ne poklapaju");
+				}
+				}
+				in.close();
+			}
+			catch (Exception e) {
+				System.out.println("Error");
+			}
+	    }
 	   
 	    	    
 	    @AfterClass
 	    public void tearDown() {
 	      if (connection != null) {
 	                try {
-	                    System.out.println("Closing Database Connection...");
+	                	System.out.println("Closing Database Connection...");
 	                    connection.close();
 	                } catch (SQLException ex) {
 	                    ex.printStackTrace();

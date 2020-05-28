@@ -1,10 +1,8 @@
 package MozzartSrbija;
 import java.io.IOException;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -16,19 +14,19 @@ public class SetovanjeTekucegRacuna extends base{
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Setovanje() throws IOException, InterruptedException {
+	public void setovanjeTekuceg() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.getUser()).perform();
+		lp.userclick().click();
 		lp.getMojracun().click();
 		MojRacun mr = new MojRacun(driver);
-		mr.PromenaPodataka().click();
+		moveToElementAndClick(mr.promenaPodataka());
 		PromenaPodataka pp = new PromenaPodataka(driver);
-		Thread.sleep(2000);
-		pp.BrojRacuna().sendKeys("265401031000207338");
-		pp.SacuvajIzmene().click();
-		log.info(pp.Title().getText());
-		pp.UreduDugme().click();
+		moveToElementAndClick(pp.brojRacuna());
+		pp.brojRacuna().sendKeys("265401031000207338");
+		pp.potvrdaPodataka().click();
+		pp.sacuvajIzmene().click();
+		log.info(pp.title().getText());
+		moveToElementAndClick(pp.uredu());
 	}
 	
 	@AfterTest(alwaysRun = true)

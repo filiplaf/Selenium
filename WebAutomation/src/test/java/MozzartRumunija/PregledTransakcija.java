@@ -1,10 +1,10 @@
 package MozzartRumunija;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -16,46 +16,61 @@ public class PregledTransakcija extends base{
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Transakcije() throws IOException, InterruptedException {
+	public void transakcijeRumunija() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.getKorisnik()).perform();
-		Thread.sleep(2000);
-		lp.getCont().click();
+		Login login = new Login();
+		moveToElementAndClick(lp.getKorisnik());
 		MojRacun mr = new MojRacun(driver);
-		Thread.sleep(15000);
-		mr.Transakcije().click();
-		Thread.sleep(10000);
-		String x = mr.TransakcijeTitle().getText();
-		//System.out.println(x);
-		if(x.contains("Nu exista tranzactii pentru ziua selectata")){
+		moveToElementAndClick(mr.transakcije());
+		wait_time(1);
+		String x = moveToElementAndRead(mr.transakcijeTitle());
+		if(x.contains("Nu exista tranzactii pentru ziua selectata")) {
 			log.info("Nema transakcija u ovom danu");
-			mr.Kalendar().click();
+			jsClick(mr.kalendar(), driver);
 			boolean isPresent = driver.findElements(By.cssSelector(".cell.day.highlighted")).size()>0;
 			if(isPresent) {
 				log.info("Ima transakcija u ovom mesecu");
+				wait_time(1);
+				String transaction = mr.transakcijeTitle().getText();
+				String user = login.username;
+				try(FileWriter writecsv = new FileWriter("C:\\Git workspace\\Selenium\\WebAutomation\\src\\main\\java\\resources\\transactionsRumunija.txt")) {
+			        writecsv.append("USERNAME je " +user+ "\n");
+			        writecsv.append("**********************************" + "\n");
+					writecsv.append(transaction);
+				}
 			}
 			else {
 				log.info("Nema transakcija u ovom mesecu");
 			}
 		}
 		else {
-			log.info("U ovom danu ima transakcija");
-			mr.Kalendar().click();
-			Thread.sleep(2000);
-			if(mr.TransactionExist().isEnabled()) {
-				mr.TransactionExist().click();
+			String datum = mr.datum().getText().substring(0, 9);
+			log.info("Poslednja transakcija je " +datum);
+			String transaction1 = mr.transakcijeTitle().getText();
+			String user = login.username;
+			try(FileWriter writecsv = new FileWriter("C:\\Git workspace\\Selenium\\WebAutomation\\src\\main\\java\\resources\\transactionsRumunijaToday.txt")) {
+		        writecsv.append("USERNAME je " +user+ "\n");
+		        writecsv.append("**********************************" + "\n");
+				writecsv.append(transaction1);
+			}
+			mr.kalendar().click();
+			if(mr.transactionExist().isEnabled()) {
+				mr.transactionExist().click();
+				wait_time(1);
+				String transaction = mr.transakcijeTitle().getText();
+				try(FileWriter writecsv = new FileWriter("C:\\Git workspace\\Selenium\\WebAutomation\\src\\main\\java\\resources\\transactionsRumunija.txt")) {
+			        writecsv.append("USERNAME je " +user+ "\n");
+			        writecsv.append("**********************************" + "\n");
+					writecsv.append(transaction);
+				}
 				log.info("Ima transakcija u ovom mesecu");
-				Thread.sleep(2000);
 			}
 	}
 	}
-	
 	
 	@AfterTest(alwaysRun = true)
 	public void teardown() {
 		driver.close();
 		driver.quit();
 	}
-
 }

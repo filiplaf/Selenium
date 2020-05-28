@@ -1,0 +1,113 @@
+USERNAME je jakov13
+**********************************
+Data
+Tip tranzactie
+Suma
+(RON)
+Disponibil
+(RON)
+11.05 Lun 12:32:00
+Achitare bilet in cont - Lotto
+3999182205270907
++1,88
+90.891,80
+11.05 Lun 12:27:01
+Achitare bilet in cont - Lotto
+3999182200771674
++0,41
+96.539,92
+11.05 Lun 12:27:01
+Achitare bilet in cont - Lotto
+3999182220135507
++2,00
+96.539,51
+11.05 Lun 12:27:01
+Achitare bilet in cont - Lotto
+3999182279202178
++1,07
+96.518,45
+11.05 Lun 12:27:01
+Achitare bilet in cont - Lotto
+3999182273786733
++0,63
+96.517,38
+11.05 Lun 12:27:01
+Achitare bilet in cont - Lotto
+3999182250641727
++0,75
+96.516,75
+11.05 Lun 12:27:00
+Achitare bilet in cont - Lotto
+3999182232511794
++19,06
+96.537,51
+11.05 Lun 12:27:00
+Achitare bilet in cont - Lotto
+3999182287055429
++2,00
+96.516,00
+11.05 Lun 12:24:15
+Plata bilet din cont - Pariuri sportive (beneficiul)
+1822039990294806
+200,00
+-
+11.05 Lun 12:16:19
+Plata bilet din cont - Lotto
+3999182283071053
+- 1,00
+96.514,00
+11.05 Lun 12:16:17
+Plata bilet din cont - Lotto
+3999182287055429
+- 1,00
+96.515,00
+11.05 Lun 12:16:15
+Plata bilet din cont - Lotto
+3999182220135507
+- 1,00
+96.516,00
+11.05 Lun 12:16:12
+Plata bilet din cont - Lotto
+3999182243689908
+- 1,00
+96.519,00
+11.05 Lun 12:16:12
+Plata bilet din cont - Lotto
+3999182205270907
+- 1,00
+96.518,00
+11.05 Lun 12:16:12
+Plata bilet din cont - Lotto
+3999182274066141
+- 1,00
+96.517,00
+11.05 Lun 12:15:59
+Plata bilet din cont - Lotto
+3999182200771674
+- 1,00
+96.520,00
+11.05 Lun 12:15:47
+Plata bilet din cont - Lotto
+3999182248764367
+- 1,00
+96.521,00
+11.05 Lun 12:15:34
+Plata bilet din cont - Lotto
+3999182279202178
+- 1,00
+96.522,00
+11.05 Lun 12:15:21
+Plata bilet din cont - Lotto
+3999182273786733
+- 1,00
+96.523,00
+11.05 Lun 12:15:09
+Plata bilet din cont - Lotto
+3999182250641727
+- 1,00
+96.524,00
+Prev
+1
+2
+3
+Next

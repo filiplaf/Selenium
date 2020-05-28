@@ -1,9 +1,7 @@
 package MozzartRumunija;
-import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import pageObjectsRumunija.KladjenjePage;
@@ -14,35 +12,118 @@ public class UplataTiketa extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Uplata() throws IOException, InterruptedException {
+	public void uplataSingla() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
 		LandingPage lp = new LandingPage(driver);
+		lp.getKorisnik().click();
 		lp.getKladjenje().click();
-		Thread.sleep(10000);
+		wait_time(3);
 		KladjenjePage kp = new KladjenjePage(driver);
-		kp.getmec1().click();
-		kp.getmec2().click();
-		kp.getmec3().click();
-		kp.getmec4().click();
+		selectRandomMatchRumunija(1);
+		takeScreenshotRumunija(name);
 		kp.uplata().clear();
 		kp.uplata().sendKeys("20");
 		kp.uplataDugme().click();
 		kp.uplataDugme2().click();
-		Thread.sleep(20000);
-		String title = kp.title().getText();
-		if(title.contains("Bilet jucat cu succes.")) {
-			log.info("Tiket uspesno uplacen");
-			log.info(title);
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", kp.title())) {
+			log.info("SINGL tiket uspesno uplacen");
+			log.info(kp.title().getText());
 		}
 		else {
 			log.error("Tiket nije uplacen");
 		}
-		kp.UreduDugme().click();
-		
-		}
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
-//		driver.close();
-//		driver.quit();
+		kp.ureduDugme().click();
 	}
-
+	
+	@Test
+	public void uplataTiket1() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.getKladjenje().click();
+		wait_time(1);
+		KladjenjePage kp = new KladjenjePage(driver);
+		selectRandomMatchRumunija(2);
+		takeScreenshotRumunija(name);
+		kp.uplata().clear();
+		kp.uplata().sendKeys("21");
+		kp.uplataDugme().click();
+		kp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", kp.title())) {
+			log.info("Tiket od DVA PARA uspesno uplacen");
+			log.info(kp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		kp.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataTiket2() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.getKladjenje().click();
+		wait_time(1);
+		KladjenjePage kp = new KladjenjePage(driver);
+		selectRandomMatchRumunija(3);
+		takeScreenshotRumunija(name);
+		kp.uplata().clear();
+		kp.uplata().sendKeys("22");
+		kp.uplataDugme().click();
+		kp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", kp.title())) {
+			log.info("Tiket od TRI PARA uspesno uplacen");
+			log.info(kp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		kp.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataTiket3() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.getKladjenje().click();
+		wait_time(1);
+		KladjenjePage kp = new KladjenjePage(driver);
+		selectRandomMatchRumunija(4);
+		takeScreenshotRumunija(name);
+		kp.uplata().clear();
+		kp.uplata().sendKeys("23");
+		kp.uplataDugme().click();
+		kp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", kp.title())) {
+			log.info("Tiket od CETIRI PARA uspesno uplacen");
+			log.info(kp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		kp.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataTiket4() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.getKladjenje().click();
+		wait_time(1);
+		KladjenjePage kp = new KladjenjePage(driver);
+		selectRandomMatchRumunija(5);
+		takeScreenshotRumunija(name);
+		kp.uplata().clear();
+		kp.uplata().sendKeys("24");
+		kp.uplataDugme().click();
+		kp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", kp.title())) {
+			log.info("Tiket od PET PARA uspesno uplacen");
+			log.info(kp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		kp.ureduDugme().click();
+	}
 }

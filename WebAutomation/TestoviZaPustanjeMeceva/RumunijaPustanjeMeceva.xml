@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" configfailurepolicy="skip">
+
+<listeners>
+<listener class-name="resources.listeners"/>
+<listener class-name="resources.ExtentReporterNG"/>
+</listeners>
+
+   <test thread-count="1" name="Citanje meceva iz baze">
+    <classes>
+      <class name="MozzartRumunija.IzvlacenjePonude"/>
+     </classes>
+  </test>
+  
+   <test thread-count="1" name="Pustanjeustanje meceva na Rumunija Web">
+    <classes>
+      <class name="MozzartRumunija.PustanjeMecevaNaSajt"/>
+     </classes>
+  </test>
+ <!-- Test -->
+</suite> <!-- Suite -->

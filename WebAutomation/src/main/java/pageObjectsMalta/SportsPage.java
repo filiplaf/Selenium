@@ -7,18 +7,15 @@ import org.openqa.selenium.WebElement;
 public class SportsPage {
 
 		public WebDriver driver;
-		By mec1 = By.xpath("//*[@id=\"vbarCentral\"]/div[1]/section[1]/div[2]/div[2]/article[1]/div/div[2]/div[1]/div[1]");
-		By mec2 = By.xpath("//*[@id=\"vbarCentral\"]/div[1]/section[1]/div[2]/div[2]/article[2]/div/div[2]/div[1]/div[1]");
-		By mec3 = By.xpath("//*[@id=\"vbarCentral\"]/div[1]/section[1]/div[2]/div[2]/article[3]/div/div[2]/div[1]/div[1]");
-		By mec4 = By.xpath("//*[@id=\"vbarCentral\"]/div[1]/section[1]/div[2]/div[2]/article[4]/div/div[2]/div[1]/div[1]");
-		By uplata = By.cssSelector("input#bettingAmount");
-		By uplataDugme = By.cssSelector("button#pay-ticket");
+		By uplata = By.id("bettingAmount");
+		By uplataSistemski = By.cssSelector("section#vbar-center div.payment > input");
+		By uplataDugme = By.id("pay-ticket");
 		By uplataDugmeSistemski = By.cssSelector("section#right div.summary-body > button");
 		By uplataDugme2 = By.cssSelector("section#right button.button.pay");
-		By UreduDugme = By.cssSelector("section#right button.button.close");
+		By ureduDugme = By.cssSelector("section#right button.button.close");
 		By sistemski = By.cssSelector("section#right div.pointer.system");
-		By checkbox = By.cssSelector("section#right div:nth-child(2) > input");
-		By checkbox1 = By.cssSelector("section#right div:nth-child(3) > input");
+		By checkbox = By.cssSelector("section#vbar-center div:nth-child(1) > input");
+		By checkbox1 = By.cssSelector("section#vbar-center div:nth-child(2) > input");
 		By izaberiBenefit = By.cssSelector("article#testprint div.benefits");
 		By klikBenefit = By.xpath("//*[@id=\"testprint\"]/div[2]/div[1]/div[2]/div/p[2]");
 		By title = By.cssSelector("section#right div.message");
@@ -28,20 +25,11 @@ public class SportsPage {
 			this.driver = driver;
 		}
 		
-		public WebElement getmec1() {
-			return driver.findElement(mec1);
-		}
-		public WebElement getmec2() {
-			return driver.findElement(mec2);
-		}
-		public WebElement getmec3() {
-			return driver.findElement(mec3);
-		}
-		public WebElement getmec4() {
-			return driver.findElement(mec4);
-		}
 		public WebElement uplata() {
 			return driver.findElement(uplata);
+		}
+		public WebElement uplataSistemski() {
+			return driver.findElement(uplataSistemski);
 		}
 		public WebElement uplataDugme() {
 			return driver.findElement(uplataDugme);
@@ -55,8 +43,8 @@ public class SportsPage {
 		public WebElement title() {
 			return driver.findElement(title);
 		}
-		public WebElement UreduDugme() {
-			return driver.findElement(UreduDugme);
+		public WebElement ureduDugme() {
+			return driver.findElement(ureduDugme);
 		}
 		public WebElement sistemski() {
 			return driver.findElement(sistemski);

@@ -1,0 +1,174 @@
+<html>
+<head>
+<title>TestNG:  Logovanje i uplata svih tipova sportskih tiketa</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Logovanje i uplata svih tipova sportskih tiketa</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>19/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 25 10:33:51 CEST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>351 seconds (351842 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='MozzartSrbija.Login.mozzartHomePage()'><b>mozzartHomePage</b><br>Test class: MozzartSrbija.Login<br>Parameters: jakov16, 8888888A</td>
+<td></td>
+<td>9</td>
+<td>MozzartSrbija.Login@2ed7978c</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogSistemskogTiketa1()'><b>uplataBrzogSistemskogTiketa1</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>35</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogSistemskogTiketa2()'><b>uplataBrzogSistemskogTiketa2</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>7</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogSistemskogTiketa3()'><b>uplataBrzogSistemskogTiketa3</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>10</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogSistemskogTiketa4()'><b>uplataBrzogSistemskogTiketa4</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>16</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogTiketa1()'><b>uplataBrzogTiketa1</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>6</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogTiketa2()'><b>uplataBrzogTiketa2</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>5</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogTiketa3()'><b>uplataBrzogTiketa3</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>7</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogTiketa4()'><b>uplataBrzogTiketa4</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>14</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataBrzziTiket.uplataBrzogTiketa5()'><b>uplataBrzogTiketa5</b><br>Test class: MozzartSrbija.UplataBrzziTiket</td>
+<td></td>
+<td>27</td>
+<td>MozzartSrbija.UplataBrzziTiket@50b38342</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataTiketa.uplataSingla()'><b>uplataSingla</b><br>Test class: MozzartSrbija.UplataTiketa</td>
+<td></td>
+<td>9</td>
+<td>MozzartSrbija.UplataTiketa@30665461</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataSistemskogTiketa.uplataSistemskogTiketa()'><b>uplataSistemskogTiketa</b><br>Test class: MozzartSrbija.UplataSistemskogTiketa</td>
+<td></td>
+<td>24</td>
+<td>MozzartSrbija.UplataSistemskogTiketa@146833a2</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataSistemskogTiketa.uplataSistemskogTiketa1()'><b>uplataSistemskogTiketa1</b><br>Test class: MozzartSrbija.UplataSistemskogTiketa</td>
+<td></td>
+<td>24</td>
+<td>MozzartSrbija.UplataSistemskogTiketa@146833a2</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataSistemskogTiketa.uplataSistemskogTiketa2()'><b>uplataSistemskogTiketa2</b><br>Test class: MozzartSrbija.UplataSistemskogTiketa</td>
+<td></td>
+<td>68</td>
+<td>MozzartSrbija.UplataSistemskogTiketa@146833a2</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataSistemskogTiketa.uplataSistemskogTiketa3()'><b>uplataSistemskogTiketa3</b><br>Test class: MozzartSrbija.UplataSistemskogTiketa</td>
+<td></td>
+<td>28</td>
+<td>MozzartSrbija.UplataSistemskogTiketa@146833a2</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataTiketa.uplataTiketa1()'><b>uplataTiketa1</b><br>Test class: MozzartSrbija.UplataTiketa</td>
+<td></td>
+<td>8</td>
+<td>MozzartSrbija.UplataTiketa@30665461</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataTiketa.uplataTiketa2()'><b>uplataTiketa2</b><br>Test class: MozzartSrbija.UplataTiketa</td>
+<td></td>
+<td>8</td>
+<td>MozzartSrbija.UplataTiketa@30665461</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataTiketa.uplataTiketa3()'><b>uplataTiketa3</b><br>Test class: MozzartSrbija.UplataTiketa</td>
+<td></td>
+<td>11</td>
+<td>MozzartSrbija.UplataTiketa@30665461</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataTiketa.uplataTiketa4()'><b>uplataTiketa4</b><br>Test class: MozzartSrbija.UplataTiketa</td>
+<td></td>
+<td>27</td>
+<td>MozzartSrbija.UplataTiketa@30665461</td></tr>
+</table><p>
+</body>
+</html>

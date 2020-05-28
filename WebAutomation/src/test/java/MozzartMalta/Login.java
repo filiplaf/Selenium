@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -14,22 +13,23 @@ import resources.base;
 public class Login extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 
-public String username = "pera59";
+public String username = "jakov13";
 public String password = "8888888A";
 
 	@Test(groups = {"Login.test"} , alwaysRun = true, dataProvider = "getData")
-	public void MozzartHomePage(String Username,String Password) throws IOException, InterruptedException {
+	public void mozzartHomePage(String Username,String Password) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.get(prop.getProperty("url3"));
 		LandingPage lp = new LandingPage(driver);
-		lp.znak().click();
-		lp.login().click();
-		lp.getKorisnik().sendKeys(Username);
-		lp.getpassword().sendKeys(Password);
-		lp.loginbutton().click();
 		lp.cookie().click();
-		String Ime = lp.user().getText();
+		driver.navigate().refresh();
+		lp.getKorisnik().sendKeys(Username);
+		lp.getPassword().sendKeys(Password);
+		lp.loginbutton().click();
+		lp.user().click();
+		String Ime = lp.userName().getText();
 		log.info("Korisnik " +Ime+ " je uspesno ulogovan");
+		lp.user().click();
 	}
 	
 	@DataProvider
@@ -41,11 +41,5 @@ public String password = "8888888A";
 		data[0][1] = password;
 		
 		return data;
-	}
-	
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
-//		driver.close();
-//		driver.quit();
 	}
 }

@@ -1,5 +1,4 @@
 package MozzartSrbija;
-import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,35 +7,56 @@ import org.testng.annotations.Test;
 
 import pageObjectsSrbija.KladjenjePage;
 import pageObjectsSrbija.LandingPage;
+import pageObjectsSrbija.MojRacun;
 import resources.base;
 
 public class UplataVaucerTiket extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Uplata() throws IOException, InterruptedException {
+	public void uplataVaucerTiketa() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
 		LandingPage lp = new LandingPage(driver);
-		//Thread.sleep(1000);
 		lp.getKladjenje().click();
-		lp.getUser().click();
-		Thread.sleep(2000);
 		KladjenjePage kp = new KladjenjePage(driver);
-		kp.getmec1().click();
-		kp.getmec2().click();
-		kp.getmec3().click();
-		kp.getmec4().click();
+		wait_time(3);
+		selectRandomMatch(5);
 		kp.izaberiBenefit().click();
 		String text = kp.benefitText().getText();
 		kp.klikBenefit().click();
 		log.info("Izabrali ste benefit: " + text);
 		kp.uplataDugme().click();
 		kp.uplataDugme2().click();
-		Thread.sleep(4000);
+	    if(waitForTextToAppear(driver, "Uspešno ste uplatili tiket.", kp.title())) {
+	    takeScreenshotSerbia(name);
 		String title = kp.title().getText();
 		log.info(title);
-		kp.UreduDugme().click();
-		
+		log.info("Vaucer tiket uspesno uplacen");
+		kp.ureduDugme().click();
 		}
+	    else {
+	    	if(waitForTextToAppear(driver, "Problem sa vezom", kp.title())) {
+	    		kp.ureduDugme().click();
+	    		lp.userclick().click();
+	    		lp.getMojracun().click();
+	    		MojRacun mr = new MojRacun(driver);
+	    		mr.pregledTiketa().click();
+	    		wait_time(1);
+	    		String x = moveToElementAndRead(mr.transactionTable());
+	    		if(x.contains("Sportsko klađenje (benefit)")) {
+	    			log.info("Vaucer tiket uspesno uplacen");
+	    		}
+	    		else {
+	    			log.info("Ne postoji vaucer tiket");
+	    		}
+	    		
+	    	}
+	    	else {
+	    		log.info("Vaucer tiket nije uspesno uplacen");
+	    	}
+	    }
+	}
+	    
 	@AfterTest(alwaysRun = true)
 	public void teardown() {
 		driver.close();

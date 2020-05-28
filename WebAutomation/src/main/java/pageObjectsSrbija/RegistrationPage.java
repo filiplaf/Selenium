@@ -1,5 +1,7 @@
 package pageObjectsSrbija;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,72 +9,77 @@ import org.openqa.selenium.WebElement;
 public class RegistrationPage {
 
 		public WebDriver driver;
-		By Ime = By.cssSelector("div#registration-step1 div:nth-child(1) > div > div.field > div.box-fields > input");
-		By Prezime = By.cssSelector("div#registration-step1 div:nth-child(2) > div > div.field > div.box-fields > input");
-		By Dan = By.cssSelector("div#registration-step1 select:nth-child(1)");
-		By Mesec = By.cssSelector("div#registration-step1 select:nth-child(2)");
-		By Godina = By.xpath("//*[@id=\"registration-step1\"]/div[3]/div/div[2]/div[1]/div/div[1]/select[3]");
-		By Email = By.cssSelector("div#registration-step1 div:nth-child(4) > div > div:nth-child(1) > div.field > div > div.box-holder > input");
-		By PonoviEmail = By.cssSelector("div#registration-step1 div:nth-child(4) > div > div:nth-child(2) > div.field > div > div.box-holder > input");
-		By KorisnickoIme = By.cssSelector("div#registration-step1 div:nth-child(5) > div > div.field > div.box-fields > input");
-		By Lozinka = By.cssSelector("div#registration-step1 div:nth-child(6) > div > div > div:nth-child(1) > div.field > div > div.box-holder > input");
-		By PonoviLozinku = By.cssSelector("div#registration-step1 div:nth-child(6) > div > div > div:nth-child(2) > div.field > div > div.box-holder > input");
-		By FrameCaptcha = By.xpath("//*[@id=\"registration-step1\"]/div[7]/div[2]/div/div/div/iframe");
-		By FrameCheckbox = By.cssSelector("#recaptcha-anchor > div.recaptcha-checkbox-checkmark");
-		By PrihvatamDugme = By.cssSelector("#gwt-uid-93");
-		By OtvoriNalogDugme = By.cssSelector("div#registration-step1 div.submit-row > button[type=\"button\"]");
-		By title = By.xpath("//*[contains(text(), 'aktivacioni email')]");
+		By korisnickoIme = By.id("username");
+		By email = By.id("email_address");
+		By lozinka = By.id("password");
+		By ponoviLozinku = By.id("confirm_password");
+		By ime = By.id("firstName");
+		By prezime = By.id("lastName");
+		By kalendar = By.id("date_birth");
+		By godina = By.cssSelector("div#pageWrapper span.day__month_btn.up");
+		By levaStrelica = By.cssSelector("div#pageWrapper div:nth-child(4) > header > span.prev");
+		By pickYear = By.xpath("//*[contains(@class,'cell year')]");
+		By pickMonth = By.xpath("//*[contains(@class,'cell month')]");
+		By pickDay = By.xpath("//*[contains(@class,'cell day')]");
+		By promocije = By.cssSelector("div#pageWrapper div:nth-child(8) > label > span");
+		By usloviKoriscenja = By.cssSelector("div#pageWrapper div:nth-child(9) > label > span");
+		By otvoriNalogDugme = By.cssSelector("div#pageWrapper section > div.right > form > button[type=\"submit\"]");
+		By title = By.cssSelector("div#pageWrapper div.modal__body > p");
+		By ureduDugme = By.cssSelector("div#pageWrapper button[type=\"button\"]");
 		
 		public RegistrationPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
 		}
-		
+		public WebElement korisnickoIme() {
+			return driver.findElement(korisnickoIme);
+		}
+		public WebElement email() {
+			return driver.findElement(email);
+		}
+		public WebElement lozinka() {
+			return driver.findElement(lozinka);
+		}
+		public WebElement ponoviLozinku() {
+			return driver.findElement(ponoviLozinku);
+		}
+		public WebElement ime() {
+			return driver.findElement(ime);
+		}
+		public WebElement prezime() {
+			return driver.findElement(prezime);
+		}
+		public WebElement kalendar() {
+			return driver.findElement(kalendar);
+		}
+		public WebElement godina() {
+			return driver.findElement(godina);
+		}
+		public WebElement levaStrelica() {
+			return driver.findElement(levaStrelica);
+		}
+		public List<WebElement> pickYear() {
+			return driver.findElements(pickYear);
+		}
+		public List<WebElement> pickMonth() {
+			return driver.findElements(pickMonth);
+		}
+		public List<WebElement> pickDay() {
+			return driver.findElements(pickDay);
+		}
+		public WebElement promocije() {
+			return driver.findElement(promocije);
+		}
+		public WebElement usloviKoriscenja() {
+			return driver.findElement(usloviKoriscenja);
+		}	
+		public WebElement otvoriNalogDugme() {
+			return driver.findElement(otvoriNalogDugme);
+		}
 		public WebElement title() {
 			return driver.findElement(title);
 		}
-		public WebElement Ime() {
-			return driver.findElement(Ime);
+		public WebElement ureduDugme() {
+			return driver.findElement(ureduDugme);
 		}
-		public WebElement Prezime() {
-			return driver.findElement(Prezime);
-		}
-		public WebElement Dan() {
-			return driver.findElement(Dan);
-		}
-		public WebElement Mesec() {
-			return driver.findElement(Mesec);
-		}
-		public WebElement Godina() {
-			return driver.findElement(Godina);
-		}
-		public WebElement Email() {
-			return driver.findElement(Email);
-		}
-		public WebElement PonoviEmail() {
-			return driver.findElement(PonoviEmail);
-		}
-		public WebElement KorisnickoIme() {
-			return driver.findElement(KorisnickoIme);
-		}
-		public WebElement Lozinka() {
-			return driver.findElement(Lozinka);
-		}
-		public WebElement PonoviLozinku() {
-			return driver.findElement(PonoviLozinku);
-		}
-		public WebElement FrameCaptcha() {
-			return driver.findElement(FrameCaptcha);
-		}
-		public WebElement FrameCheckbox() {
-			return driver.findElement(FrameCheckbox);
-		}
-		public WebElement PrihvatamDugme() {
-			return driver.findElement(PrihvatamDugme);
-		}
-		public WebElement OtvoriNalogDugme() {
-			return driver.findElement(OtvoriNalogDugme);
-		}
-		
-		
 }

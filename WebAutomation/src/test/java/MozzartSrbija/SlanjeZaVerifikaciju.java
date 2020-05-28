@@ -1,5 +1,4 @@
 package MozzartSrbija;
-import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,50 +13,41 @@ public class SlanjeZaVerifikaciju extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
     @Test
-	public void Uplata() throws IOException, InterruptedException {
+	public void slanjeTiketaZaVerifikaciju() throws Exception {
+    	String name = new Object(){}.getClass().getEnclosingMethod().getName();
 		LandingPage lp = new LandingPage(driver);
 		lp.getKladjenje().click();
-		Thread.sleep(2000);
 		KladjenjeVerifikacija kv = new KladjenjeVerifikacija(driver);
-		kv.getmec1().click();
-		kv.getmec2().click();
-		kv.getmec3().click();
-		kv.getmec4().click();
+		wait_time(3);
+		selectRandomMatch(4);
 		kv.uplata().clear();
 		kv.uplata().sendKeys("20000");
 		kv.uplataDugme().click();
 		kv.uplataDugme2().click();
-		Thread.sleep(5000);
+		wait_time(5);
 		String title = kv.title().getText();
 		log.info("Tiket je poslat na verifikaciju! :" + title);
-		Thread.sleep(10000);
+		wait_time(10);
 		String title1 = kv.title().getText();
 		log.info(title1);
-		Thread.sleep(5000);
+		takeScreenshotSerbia(name);
 		try {
-		if(kv.accept().isDisplayed()) {
+		kv.accept().isDisplayed();
 		kv.accept().click();
-		kv.Accept1().click();
-		Thread.sleep(5000);
+		kv.accept1().click();
+		wait_time(5);
 		String title2 = kv.title().getText();
 		log.info(title2);
-		log.info("Tiket nakon verifikovanja je uspesno uplacen");
+		log.info("Tiket nakon verifikovanja je uspesno uplacen sa promenama");
 		kv.closeDugme().click();
 		}
-		else {
-			String title3 = kv.title().getText();
-			log.info(title3);
-			log.info("Tiket nakon verifikovanja je uspesno uplacen");
-			kv.closeDugme().click();
-		}
-		}
 		catch (Exception e) {
-			String title3 = kv.title().getText();
-			log.info(title3);
-			log.info("Tiket nakon verifikovanja je uspesno uplacen");
+			log.info("Tiket nakon verifikovanja je uspesno uplacen bez promene iznosa");
+			takeScreenshotSerbia(name);
 			kv.closeDugme().click();
 		}	
 		}
+    
 	@AfterTest(alwaysRun = true)
 	public void teardown() {
 		driver.close();

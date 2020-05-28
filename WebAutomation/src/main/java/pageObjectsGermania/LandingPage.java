@@ -8,26 +8,29 @@ public class LandingPage {
 
 		public WebDriver driver;
 		By prijavite_se = By.cssSelector("div#pageWrapper a.login-link");
-		By korisnicko_ime = By.cssSelector("div#pageWrapper input[type=\"text\"]:nth-child(2)");
-		By lozinka = By.cssSelector("div#pageWrapper input[type=\"password\"]:nth-child(3)");
+		By korisnicko_ime = By.cssSelector("div#pageWrapper input[type=\"text\"]:nth-child(1)");
+		By lozinka = By.cssSelector("div#pageWrapper input[type=\"password\"]:nth-child(2)");
 		By prijavite_se_dugme = By.cssSelector("div#pageWrapper button[type=\"submit\"]");
 		By title = By.cssSelector("div#spa header > div.title");
 		By header_navigation= By.cssSelector("#pageWrapper > header");
-		By name = By.cssSelector("div#pageWrapper div.balance-view.more-links > p");
-		By kladjenje = By.cssSelector("div#pageWrapper nav > div:nth-child(2) > a > span");
+		By name = By.cssSelector("div#pageWrapper p.regular.username");
+		By kladjenje = By.cssSelector("div#pageWrapper article.nav-group.h100 > a:nth-child(1)");
 		By mojBroj = By.cssSelector("div#pageWrapper div:nth-child(5) > a > span");
 		By grckiTombo = By.cssSelector("div#pageWrapper div:nth-child(6) > a");
-		By virtualNav = By.cssSelector("div#pageWrapper div:nth-child(8) > a > span");
-		By virtualFudbal = By.cssSelector("div#pageWrapper div:nth-child(8) > div > a:nth-child(1)");
-		By korisnik = By.cssSelector("div#pageWrapper div.balance-view.more-links > p");
-		By mojRacun = By.cssSelector("div#pageWrapper div.balance-view.more-links > div > a:nth-child(2)");
+		By virtualNav = By.cssSelector("div#pageWrapper a:nth-child(5)");
+		By korisnik = By.cssSelector("div#pageWrapper div.flex.row.user-box > img");
+		By mojRacun = By.cssSelector("div#pageWrapper div > div.flex > span");
 		By registruj = By.cssSelector("div#pageWrapper a.register-link");
-		By znak = By.cssSelector("article.content > a:nth-child(1) > div:nth-child(1)");
+		By znak = By.xpath("//*[contains(@class, 'name desktop')]");
 		By cookie = By.cssSelector("#gdpr-wrapper > div > div.accept-button");
-		By Loto = By.cssSelector("div#pageWrapper div:nth-child(5) > a > span");
-		By LotoNav = By.cssSelector("div#pageWrapper div:nth-child(5) > div > div:nth-child(1) > a > span");
-		By LuckyG = By.cssSelector("div#pageWrapper div:nth-child(5) > div > div:nth-child(2) > a > span");
-		
+		By loto = By.cssSelector("div#pageWrapper a:nth-child(4)");
+		By lotoNav = By.cssSelector("div#pageWrapper div:nth-child(5) > div > div:nth-child(1) > a > span");
+		By luckyG = By.cssSelector("div#pageWrapper section.nav-bottom > article:nth-child(2) > a:nth-child(2)");
+		By balans = By.cssSelector("div#pageWrapper div.balances-betting > div:nth-child(2) > span:nth-child(2)");
+		By kazinoBalans = By.cssSelector("div#pageWrapper div.balances-casino > div:nth-child(2) > span:nth-child(2)");
+		By provjeraListica = By.cssSelector("div#pageWrapper section.nav-bottom > article:nth-child(2) > a:nth-child(1)");
+		By uzivo = By.cssSelector("div#pageWrapper article.nav-group.h100 > a:nth-child(2)");
+		By zaboravljenaLozinka = By.cssSelector("div#pageWrapper div.flex.row.register-part > a:nth-child(2)");
 		
 		public LandingPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
@@ -46,12 +49,6 @@ public class LandingPage {
 		public WebElement getButtonClick() {
 			return driver.findElement(prijavite_se_dugme);
 		}
-//		public WebElement getTitle() {
-//			return driver.findElement(title);
-//		}
-//		public WebElement getHeaderNavigation() {
-//			return driver.findElement(header_navigation);
-//		}
 		public WebElement getnameNavigation() {
 			return driver.findElement(name);
 		}
@@ -67,9 +64,6 @@ public class LandingPage {
 		public WebElement getvirtualNav() {
 			return driver.findElement(virtualNav);
 		}
-		public WebElement getvirtualFudbal() {
-			return driver.findElement(virtualFudbal);
-		}
 		public WebElement getKorisnik() {
 			return driver.findElement(korisnik);
 		}
@@ -82,16 +76,31 @@ public class LandingPage {
 		public WebElement znak() {
 			return driver.findElement(znak);
 		}
-		public WebElement Cookie() {
+		public WebElement cookie() {
 			return driver.findElement(cookie);
 		}
-		public WebElement Loto() {
-			return driver.findElement(Loto);
+		public WebElement loto() {
+			return driver.findElement(loto);
 		}
-		public WebElement LotoNav() {
-			return driver.findElement(LotoNav);
+		public WebElement lotoNav() {
+			return driver.findElement(lotoNav);
 		}
-		public WebElement LuckyG() {
-			return driver.findElement(LuckyG);
+		public WebElement luckyG() {
+			return driver.findElement(luckyG);
+		}
+		public WebElement balans() {
+			return driver.findElement(balans);
+		}
+		public WebElement kazinoBalans() {
+			return driver.findElement(kazinoBalans);
+		}
+		public WebElement provjeraListica() {
+			return driver.findElement(provjeraListica);
+		}
+		public WebElement uzivo() {
+			return driver.findElement(uzivo);
+		}
+		public WebElement zaboravljenaLozinka() {
+			return driver.findElement(zaboravljenaLozinka);
 		}
 }

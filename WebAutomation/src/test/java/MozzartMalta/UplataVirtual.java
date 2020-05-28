@@ -3,8 +3,7 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -16,33 +15,114 @@ public class UplataVirtual extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Uplata() throws IOException, InterruptedException {
+	public void uplataVirtualTiketa1() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.getvirtualNav()).build().perform();
-		lp.getvirtualFudbal().click();
-		Thread.sleep(1500);
+		wait_time(1);
+		moveToElementAndClick(lp.getvirtualNav());
+		wait_time(1);
+		moveToElementAndClick(lp.getvirtualFudbal());
 		VirtualFudbalPage vf = new VirtualFudbalPage(driver); 
-		//Uplata virtualnog tiketa
-		vf.VirtualMec1().click();
-		vf.VirtualMec2().click();
-		vf.VirtualMec3().click();
-		vf.uplata().clear();
-		vf.uplata().sendKeys("5");
+		//Uplata virtualnog singl tiketa
+		wait_time(3);
+		selectRandomVirtualMatchMalta(1);
+		vf.uplata().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		vf.uplata().sendKeys("1");
 		vf.uplataDugme().click();
 		vf.uplataDugme2().click();
-		Thread.sleep(6000);
-		String title = vf.title().getText();
-		log.info(title);
-		log.info("Virtualni fudbal tiket uspesno uplacen");
-		vf.UreduDugme().click();
-
+		waitForElementToBeVisible(driver, vf.ureduDugme(), 10);
+		if(vf.ureduDugme().isDisplayed()) {
+			String title = vf.title().getText();
+			log.info("Virtualni fudbal SINGL tiket uspesno uplacen: " + title);
+			vf.ureduDugme().click();
+		}
+		else {
+			log.info("Virtualni fudbal tiket nije uplacen");
+		}
 	}
-		
-	@AfterTest(alwaysRun = true)
+	
+	@Test
+	public void uplataVirtualTiketa2() throws IOException, InterruptedException {
+		VirtualFudbalPage vf = new VirtualFudbalPage(driver); 
+		wait_time(2);
+		selectRandomVirtualMatchMalta(2);
+		vf.uplata().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		vf.uplata().sendKeys("1");
+		vf.uplataDugme().click();
+		vf.uplataDugme2().click();
+		waitForElementToBeVisible(driver, vf.ureduDugme(), 10);
+		if(vf.ureduDugme().isDisplayed()) {
+			String title = vf.title().getText();
+			log.info("Virtualni fudbal tiket sa DVA PARA uspesno uplacen: " + title);
+			vf.ureduDugme().click();
+		}
+		else {
+			log.info("Virtualni fudbal tiket nije uplacen");
+		}
+	}
+	
+	@Test
+	public void uplataVirtualTiketa3() throws IOException, InterruptedException {
+		VirtualFudbalPage vf = new VirtualFudbalPage(driver); 
+		wait_time(2);
+		selectRandomVirtualMatchMalta(3);
+		vf.uplata().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		vf.uplata().sendKeys("1");
+		vf.uplataDugme().click();
+		vf.uplataDugme2().click();
+		waitForElementToBeVisible(driver, vf.ureduDugme(), 10);
+		if(vf.ureduDugme().isDisplayed()) {
+			String title = vf.title().getText();
+			log.info("Virtualni fudbal tiket sa TRI PARA uspesno uplacen: " + title);
+			vf.ureduDugme().click();
+		}
+		else {
+			log.info("Virtualni fudbal tiket nije uplacen");
+		}
+	}
+	
+	@Test
+	public void uplataVirtualTiketa4() throws IOException, InterruptedException {
+		VirtualFudbalPage vf = new VirtualFudbalPage(driver); 
+		wait_time(2);
+		selectRandomVirtualMatchMalta(4);
+		vf.uplata().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		vf.uplata().sendKeys("1");
+		vf.uplataDugme().click();
+		vf.uplataDugme2().click();
+		waitForElementToBeVisible(driver, vf.ureduDugme(), 10);
+		if(vf.ureduDugme().isDisplayed()) {
+			String title = vf.title().getText();
+			log.info("Virtualni fudbal tiket sa CETIRI PARA uspesno uplacen: " + title);
+			vf.ureduDugme().click();
+		}
+		else {
+			log.info("Virtualni fudbal tiket nije uplacen");
+		}
+	}
+	
+	@Test
+	public void uplataVirtualTiketa5() throws IOException, InterruptedException {
+		VirtualFudbalPage vf = new VirtualFudbalPage(driver); 
+		wait_time(2);
+		selectRandomVirtualMatchMalta(5);
+		vf.uplata().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		vf.uplata().sendKeys("1");
+		vf.uplataDugme().click();
+		vf.uplataDugme2().click();
+		waitForElementToBeVisible(driver, vf.ureduDugme(), 10);
+		if(vf.ureduDugme().isDisplayed()) {
+			String title = vf.title().getText();
+			log.info("Virtualni fudbal tiket sa PET PARA uspesno uplacen: " + title);
+			vf.ureduDugme().click();
+		}
+		else {
+			log.info("Virtualni fudbal tiket nije uplacen");
+		}
+	}
+	@AfterTest()
 	public void teardown() {
-		driver.close();
-		driver.quit();
+	driver.close();
+	driver.quit();
 	}
-
+	
 }

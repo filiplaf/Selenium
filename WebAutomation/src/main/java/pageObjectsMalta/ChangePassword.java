@@ -7,34 +7,34 @@ import org.openqa.selenium.WebElement;
 public class ChangePassword {
 
 		public WebDriver driver;
-		By Password = By.cssSelector("input#password");
-		By NewPassword = By.cssSelector("input#new-password");
-		By ConfirmPassword = By.cssSelector("input#confirm-password");
-		By SaveButton = By.cssSelector("div#account-wrapper button[type=\"submit\"]");
-		By Title = By.cssSelector("div#account-wrapper div.modal__body > p");
-		By OkButton = By.cssSelector("div#account-wrapper button[type=\"button\"]");
+		By password = By.cssSelector("input#password");
+		By newPassword = By.cssSelector("input#new-password");
+		By confirmPassword = By.cssSelector("input#confirm-password");
+		By saveButton = By.cssSelector("div#account-wrapper button[type=\"submit\"]");
+		By title = By.cssSelector("div#account-wrapper div.modal__body > p");
+		By okButton = By.cssSelector("div#account-wrapper button[type=\"button\"]");
 		
 		public ChangePassword(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
 		}
 		
-		public WebElement Password() {
-			return driver.findElement(Password);
+		public WebElement password() {
+			return driver.findElement(password);
 		}
-		public WebElement NewPassword() {
-			return driver.findElement(NewPassword);
+		public WebElement newPassword() {
+			return driver.findElement(newPassword);
 		}
-		public WebElement ConfirmPassword() {
-			return driver.findElement(ConfirmPassword);
+		public WebElement confirmPassword() {
+			return driver.findElement(confirmPassword);
 		}
-		public WebElement SaveButton() {
-			return driver.findElement(SaveButton);
+		public WebElement saveButton() {
+			return driver.findElement(saveButton);
 		}	
-		public WebElement Title() {
-			return driver.findElement(Title);
+		public WebElement title() {
+			return driver.findElement(title);
 		}	
-		public WebElement OkButton() {
-			return driver.findElement(OkButton);
+		public WebElement okButton() {
+			return driver.findElement(okButton);
 		}
 }

@@ -7,26 +7,26 @@ import org.openqa.selenium.WebElement;
 public class DocumentUpload {
 
 		public WebDriver driver;
-		By Upload = By.cssSelector("#account-wrapper > section.account-container > div.account-container-center > section > div.uploadForm__wrapper > div.left > div > input");
-		By UploadButton = By.cssSelector("div#account-wrapper button[type=\"submit\"]");
-		By OkButton = By.cssSelector("div#account-wrapper div.popup-footer > div");
-		By Title = By.cssSelector("div#account-wrapper div.popup-body > p");
+		By upload = By.cssSelector("#account-wrapper > section.account-container > div.account-container-center > section > div.uploadForm__wrapper > div.left > div > input");
+		By uploadButton = By.cssSelector("div#account-wrapper button[type=\"submit\"]");
+		By okButton = By.cssSelector("div#account-wrapper div.popup-footer > div");
+		By title = By.cssSelector("div#account-wrapper div.popup-body > p");
 		
 		public DocumentUpload(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
 		}
 		
-		public WebElement Upload() {
-			return driver.findElement(Upload);
+		public WebElement upload() {
+			return driver.findElement(upload);
 		}
-		public WebElement UploadButton() {
-			return driver.findElement(UploadButton);
+		public WebElement uploadButton() {
+			return driver.findElement(uploadButton);
 		}
-		public WebElement OkButton() {
-			return driver.findElement(OkButton);
+		public WebElement okButton() {
+			return driver.findElement(okButton);
 		}
-		public WebElement Title() {
-			return driver.findElement(Title);
+		public WebElement title() {
+			return driver.findElement(title);
 		}
 }

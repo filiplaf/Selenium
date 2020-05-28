@@ -1,0 +1,57 @@
+package MozzartRumunija;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+import pageObjectsRumunija.LandingPage;
+import pageObjectsRumunija.StatusTiketaPage;
+import resources.base;
+
+
+public class StatusSportskogTiketa extends base{
+public static Logger log = LogManager.getLogger(base.class.getName());
+
+
+	@Test
+	public void statusSportskogTiketa() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		StatusTiketaPage st = new StatusTiketaPage(driver);
+		lp.statusTiketa().click();
+		wait_time(1);
+		try {
+			FileInputStream fstream = new FileInputStream("C:\\Git workspace\\Selenium\\WebAutomation\\src\\main\\java\\resources\\kodSportskogTiketaRumunija.txt");
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String srtLine;
+			while ((srtLine = br.readLine()) !=null) {
+			st.sifraTiketa().sendKeys(srtLine);
+			st.pronadjiTiket().click();
+			wait_time(1);
+			if(st.ureduDugme().isDisplayed()) {
+				takeScreenshotRumunija(name);
+				st.ureduDugme().click();
+				log.info("Sportski tiket uspesno ocitan sa sifrom: " + srtLine);
+			}
+			else log.info("Sportski tiket nije ocitan");
+		}	
+			
+		}
+		catch (Exception e) {
+			log.error("Ne postoji dokument sa kodom!");
+		}
+	}	
+		
+	@AfterTest(alwaysRun = true)
+	public void teardown() {
+		driver.close();
+		driver.quit();
+	}
+}

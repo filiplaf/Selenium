@@ -4,7 +4,6 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -16,46 +15,42 @@ public class IsplataNaUm extends base{
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Isplata() throws IOException, InterruptedException {
+	public void isplataNaUM() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.getnameNavigation()).perform();
+		lp.getKorisnik().click();
 		lp.getMojracun().click();
 		MojRacun mr = new MojRacun(driver);
-		Thread.sleep(1000);
-		mr.Isplata().click();
-		mr.NaUplatnoMesto().click();
-		mr.Um().click();
+		mr.isplata().click();
+		wait_time(1);
+		mr.naUplatnoMesto().click();
+		mr.um().click();
 		
 		//Isplata na CityCaffe UM
-		mr.Rovinj().click();
-		mr.Iznos().sendKeys("100");
-		Thread.sleep(1000);
-		mr.Isplati().click();
-		String title = mr.Title().getText();
+		mr.rovinj().click();
+		mr.iznos().sendKeys("100");
+		mr.isplati().click();
+		String title = mr.title().getText();
 		log.info(title);
-		mr.ZatvoriDugme().click();
+		mr.zatvoriDugme().click();
 		
 //		//Isplata na Zagreb Dubrava UM
-		mr.Um().click();
-		mr.ZagrebDubrava().click();
-		mr.Iznos().sendKeys(Keys.CONTROL + "a");
-		mr.Iznos().sendKeys(Keys.DELETE);
-		mr.Iznos().sendKeys("200");
-		Thread.sleep(1000);
-		mr.Isplati().click();
-		String title1 = mr.Title().getText();
+		mr.um().click();
+		mr.zagrebDubrava().click();
+		mr.iznos().sendKeys(Keys.CONTROL + "a");
+		mr.iznos().sendKeys(Keys.DELETE);
+		mr.iznos().sendKeys("200");
+		mr.isplati().click();
+		String title1 = mr.title().getText();
 		log.info(title1);
-		mr.ZatvoriDugme().click();
+		mr.zatvoriDugme().click();
 		
-		Thread.sleep(1000);
-		mr.Iznos().sendKeys(Keys.CONTROL + "a");
-		mr.Iznos().sendKeys(Keys.DELETE);
-		mr.Iznos().sendKeys("300");
-		mr.Isplati().click();
-		String title2 = mr.Title().getText();
+		mr.iznos().sendKeys(Keys.CONTROL + "a");
+		mr.iznos().sendKeys(Keys.DELETE);
+		mr.iznos().sendKeys("300");
+		mr.isplati().click();
+		String title2 = mr.title().getText();
 		log.info(title2);
-		mr.ZatvoriDugme().click();
+		mr.zatvoriDugme().click();
 		}
 		
 	@AfterTest(alwaysRun = true)

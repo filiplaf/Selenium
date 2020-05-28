@@ -1,5 +1,0 @@
-14:26:38.855 [main] INFO  resources.base - Biletul dumneavoastra se incarca. Va rugam sa asteptati...
-14:26:38.861 [main] INFO  resources.base - Tiket nakon verifikovanja je uspesno uplacen
-14:29:32.023 [main] INFO  resources.base - Korisnik pera65 je uspesno ulogovan
-14:30:11.391 [main] INFO  resources.base - Tiket je poslat na verifikaciju! :Biletul pe care doriti sa-l introduceti nu poate fi acceptat cu suma 8190.00 RON. Doriti sa continuati cu noua suma oferita: 100.00 RON?
-14:30:31.480 [main] INFO  resources.base - Kvota je promenjenaBiletul pe care doriti sa-l introduceti nu poate fi acceptat cu suma 8190.00 RON. Doriti sa continuati cu noua suma oferita: 100.00 RON?

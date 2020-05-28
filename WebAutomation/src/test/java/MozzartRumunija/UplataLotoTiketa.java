@@ -3,9 +3,6 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import pageObjectsRumunija.LandingPage;
@@ -16,40 +13,26 @@ public class UplataLotoTiketa extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void UplataGrckiLoto() throws IOException, InterruptedException {
+	public void uplataGrckiLoto() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.lotoJocuri()).perform();
+		lp.getKorisnik().click();
 		lp.loto().click();
-		Thread.sleep(15000);
 		LotoPage loto = new LotoPage(driver);
-		
-		//obican grcki loto tiket
+		wait_time(3);
 		loto.GrckiLotoTime().click();
-		Thread.sleep(5000);
-		loto.GrckiLotoKugla1().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla2().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla3().click();
-		loto.uplata().clear();
-		loto.uplata().sendKeys("5");
-		Thread.sleep(2000);
-		
+		selectRandomLotoNumberRumunija(1);
 		try {
 			if(loto.activeDugme().isDisplayed()) {
 			System.out.println("Aktivno dugme je bilo prikazano");
 			loto.activeDugme().click();
 			loto.uplataDugme().click();
 			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title = loto.title().getText();
-			if(title.contains("Ati introdus biletul cu succes.")) {
-				log.info("Grcki kino uspesno uplacen");
-				log.info(title);
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa JEDNOM kuglicom uspesno uplacen");
+				log.info(loto.title().getText());
 			}
 			else {
-				log.error("Grcki kino nije uplacen");
+				log.error("Grcki kino sa JEDNOM kuglicom nije uplacen");
 			}
 			loto.UreduDugme().click();
 		}
@@ -57,211 +40,507 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		catch (Exception e) {
 			loto.uplataDugme().click();
 			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title = loto.title().getText();
-			if(title.contains("Ati introdus biletul cu succes.")) {
-				log.info("Grcki kino uspesno uplacen");
-				log.info(title);
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa JEDNOM kuglicom uspesno uplacen");
+				log.info(loto.title().getText());
 			}
 			else {
-				log.error("Grcki kino nije uplacen");
+				log.error("Grcki kino sa JEDNOM kuglicom nije uplacen");
 			}
 			loto.UreduDugme().click();
 		}
-
-//		//sistemski grcki loto tiket
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla1().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla2().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla3().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla4().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla5().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla6().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla7().click();
-		Thread.sleep(1000);
-		loto.GrckiLotoKugla8().click();
-		Thread.sleep(1000);
-		loto.sistemski().click();
-		Thread.sleep(1000);
-		
-		try {
-			if(loto.activeDugme().isDisplayed()) {
-			System.out.println("Aktivno dugme je bilo prikazano");
-			loto.activeDugme().click();
-			loto.uplataDugme().click();
-			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title1 = loto.title().getText();
-			if(title1.contains("Ati introdus biletul cu succes.")) {
-				log.info("Sistemski Grcki kino uspesno uplacen");
-				log.info(title1);
-				}
-			else {
-				log.error("Sistemski Grcki kino nije uplacen");
-			}
-		}
-		loto.UreduDugme().click();
-		}
-		catch (Exception e) {
-			loto.uplataDugme().click();
-			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title = loto.title().getText();
-			if(title.contains("Ati introdus biletul cu succes.")) {
-				log.info("Sistemski Grcki kino uspesno uplacen");
-				log.info(title);
-			}
-			else {
-				log.error("Grcki kino nije uplacen");
-			}
-			loto.UreduDugme().click();
-		}
-		
-		//grcki loto uplata singla(zbir brojeva veci od 20)
-		Thread.sleep(1000);
-		JavascriptExecutor jsx = (JavascriptExecutor)driver;
-		jsx.executeScript("window.scrollBy(0,650)", "");
-		loto.singligra().click();
-		loto.uplataSingl().clear();
-		loto.uplataSingl().sendKeys("5");
-		try {
-			if(loto.activeDugme().isDisplayed()) {
-			System.out.println("Aktivno dugme je bilo prikazano");
-			loto.uplataDugmeSingl().click();
-			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title2 = loto.title().getText();
-			if(title2.contains("Ati introdus biletul cu succes.")) {
-			log.info("Singl Grcki kino uspesno uplacen");
-			log.info(title2);
-			}
-		else {
-			log.error("Singl Grcki kino nije uplacen");
-		}
-		loto.UreduDugme().click();
-		}
-		}
-		catch (Exception e) {
-			loto.uplataDugmeSingl().click();
-			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title2 = loto.title().getText();
-			if(title2.contains("Ati introdus biletul cu succes.")) {
-			log.info("Singl Grcki kino uspesno uplacen");
-			log.info(title2);
-			}
-		else {
-			log.error("Singl Grcki kino nije uplacen");
-		}
-		loto.UreduDugme().click();
-		}
-
 	}
 	
 	@Test
-	public void UplataItalijanskiloto() throws IOException, InterruptedException {
+	public void uplataGrckiLoto1() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
 		lp.loto().click();
-		Thread.sleep(15000);
 		LotoPage loto = new LotoPage(driver);
-		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(2);
 		
-		//obican italijanski loto tiket
-		jsx.executeScript("window.scrollBy(0,-650)", "");
-		//loto.ItalijanskiLoto().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoTime().click();
-		Thread.sleep(5000);
-		loto.ItalijanskiLotoKugla1().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoKugla2().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoKugla3().click();
 		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
 			loto.activeDugme().click();
 			loto.uplataDugme().click();
 			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title3 = loto.title().getText();
-			if(title3.contains("Ati introdus biletul cu succes.")) {
-				log.info("Italijanski loto uspesno uplacen");
-				log.info(title3);
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa DVE kuglice uspesno uplacen");
+				log.info(loto.title().getText());
 			}
 			else {
-				log.error("Italijanski loto nije uplacen");
+				log.error("Grcki kino sa DVE kuglice nije uplacen");
 			}
-				loto.UreduDugme().click();
+			loto.UreduDugme().click();
+		}
 		}
 		catch (Exception e) {
 			loto.uplataDugme().click();
 			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title3 = loto.title().getText();
-			if(title3.contains("Ati introdus biletul cu succes.")) {
-				log.info("Italijanski loto uspesno uplacen");
-				log.info(title3);
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa DVE kuglice uspesno uplacen");
+				log.info(loto.title().getText());
 			}
 			else {
-				log.error("Italijanski loto nije uplacen");
+				log.error("Grcki kino sa DVE kuglice nije uplacen");
 			}
-				loto.UreduDugme().click();
+			loto.UreduDugme().click();
 		}
-			
-//		//sistemski italijanski loto tiket
-		loto.ItalijanskiLotoKugla4().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoKugla5().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoKugla6().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoKugla7().click();
-		Thread.sleep(1000);
-		loto.ItalijanskiLotoKugla8().click();
-		Thread.sleep(1000);
-		loto.sistemski().click();
+	}
+	
+	@Test
+	public void uplataGrckiLoto2() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(3);
+		
 		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
 			loto.activeDugme().click();
 			loto.uplataDugme().click();
 			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title4 = loto.title().getText();
-			if(title4.contains("Ati introdus biletul cu succes.")) {
-				log.info("Italijanski sistemski loto uspesno uplacen");
-				log.info(title4);
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa TRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
 			}
-				else {
-				log.error("Italijanski sistemski loto nije uplacen");
+			else {
+				log.error("Grcki kino sa TRI kuglice nije uplacen");
 			}
-				loto.UreduDugme().click();
-
+			loto.UreduDugme().click();
+		}
 		}
 		catch (Exception e) {
 			loto.uplataDugme().click();
 			loto.uplataDugme2().click();
-			Thread.sleep(20000);
-			String title4 = loto.title().getText();
-			if(title4.contains("Ati introdus biletul cu succes.")) {
-				log.info("Italijanski sistemski loto uspesno uplacen");
-				log.info(title4);
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa TRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
 			}
-				else {
-				log.error("Italijanski sistemski loto nije uplacen");
+			else {
+				log.error("Grcki kino sa TRI kuglice nije uplacen");
 			}
-				loto.UreduDugme().click();
-
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLoto3() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(4);
+		
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa CETIRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki kino sa CETIRI kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
 		}
 		}
-
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
-		driver.close();
-		driver.quit();
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa CETIRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki kino sa CETIRI kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(2);
+		loto.checkbox().click();
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa DVE kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa DVE kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa DVE kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa DVE kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem1() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(3);
+		loto.checkbox().click();
+		
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa TRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa TRI kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa TRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa TRI kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem2() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(4);
+		loto.checkbox().click();
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa CETIRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa CETIRI kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa CETIRI kuglice uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa CETIRI kuglice nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem3() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(5);
+		loto.checkbox().click();
+		
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa PET kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa PET kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa PET kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa PET kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem4() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(6);
+		loto.checkbox().click();
+		
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa SEST kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa SEST kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa SEST kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa SEST kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem5() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(7);
+		loto.checkbox().click();
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa SEDAM kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa SEDAM kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa SEDAM kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa SEDAM kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test
+	public void uplataGrckiLotoSistem6() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(8);
+		loto.checkbox().click();
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa OSAM kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa OSAM kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki sistem kino sa OSAM kuglica uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki sistem kino sa OSAM kuglica nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckiLotoZaViseKola() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomLotoNumberRumunija(3);
+		selectRandomLotoKoloRumunija();
+		loto.checkbox().click();
+		try {
+			if(loto.activeDugme().isDisplayed()) {
+			System.out.println("Aktivno dugme je bilo prikazano");
+			loto.activeDugme().click();
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa TRI kuglice za vise kola uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki kino sa TRI kuglice za vise kola nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
+		}
+		catch (Exception e) {
+			loto.uplataDugme().click();
+			loto.uplataDugme2().click();
+			if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+				log.info("Grcki kino sa TRI kuglice za vise kola uspesno uplacen");
+				log.info(loto.title().getText());
+			}
+			else {
+				log.error("Grcki kino sa TRI kuglice za vise kola nije uplacen");
+			}
+			loto.UreduDugme().click();
+		}
 	}
 
+	@Test(priority=2)
+	public void uplataGrckiLotoSingl() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomSinglLotoRumunija();
+		loto.uplataDugmeSingl().click();
+		loto.uplataDugmeSingl1().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+			log.info("Grcki kino SINGL tiket uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino SINGL tiket uspesno uplacen");
+		}
+		loto.UreduDugme().click();
+	}
+	
+	@Test(priority=3)
+	public void uplataGrckiLotoSingl1() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomSinglLotoRumunija();
+		loto.uplataDugmeSingl().click();
+		loto.uplataDugmeSingl1().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+			log.info("Grcki kino SINGL tiket uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino SINGL tiket uspesno uplacen");
+		}
+		loto.UreduDugme().click();
+	}
+	
+	@Test(priority=4)
+	public void uplataGrckiLotoSingl2() throws IOException, InterruptedException {
+		LandingPage lp = new LandingPage(driver);
+		lp.loto().click();
+		LotoPage loto = new LotoPage(driver);
+		wait_time(1);
+		loto.GrckiLotoTime().click();
+		selectRandomSinglLotoLowHigh();
+		loto.uplataDugmeSingl().click();
+		loto.uplataDugmeSingl1().click();
+		if(waitForTextToAppear(driver, "Bilet inregistrat cu succes.", loto.title())) {
+			log.info("Grcki kino SINGL tiket uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino SINGL tiket uspesno uplacen");
+		}
+		loto.UreduDugme().click();
+	}
 }

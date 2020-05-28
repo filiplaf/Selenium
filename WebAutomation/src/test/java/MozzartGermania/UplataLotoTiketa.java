@@ -3,7 +3,6 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import pageObjectsGermania.LandingPage;
@@ -14,115 +13,321 @@ public class UplataLotoTiketa extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void UplataGrckiloto() throws IOException, InterruptedException {
+	public void uplataGrckiloto() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.Loto()).perform();
-		lp.LotoNav().click();
-		Thread.sleep(1000);
+		lp.loto().click();
 		LotoPage loto = new LotoPage(driver);
-		
-		//obican grcki loto tiket
-		loto.GrckiLotoTime().click();
-		loto.GrckiLotoKugla1().click();
-		loto.GrckiLotoKugla2().click();
-		loto.GrckiLotoKugla3().click();
+		//grcki loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(1);
 		loto.uplata().clear();
 		loto.uplata().sendKeys("5");
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(7000);
-		String title = loto.title().getText();
-		if(title.contains("Stanje novca")) {
-			log.info("Grcki kino uspesno uplacen");
-			log.info(title);
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Grcki kino sa JEDNIM brojem uspesno uplacen");
+			log.info(loto.title().getText());
 		}
 		else {
 			log.error("Grcki kino nije uplacen");
 		}
-		loto.UreduDugme().click();
-		
-		//sistemski grcki loto tiket
-		loto.GrckiLotoKugla1().click();
-		loto.GrckiLotoKugla2().click();
-		loto.GrckiLotoKugla3().click();
-		loto.sistemski().click();
+		loto.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataGrckiloto1() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(2);
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
 		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(7000);
-		String title1 = loto.title().getText();
-		if(title1.contains("Stanje novca")) {
-			log.info("Grcki sistemski kino uspesno uplacen");
-			log.info(title1);
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Grcki kino sa DVA broja uspesno uplacen");
+			log.info(loto.title().getText());
 		}
 		else {
-			log.error("Grcki sistemski kino nije uplacen");
+			log.error("Grcki kino nije uplacen");
 		}
-		loto.UreduDugme().click();
-		
-		//grcki loto uplata singla(zbir brojeva veci od 20)
-		loto.zbir().click();
-		Thread.sleep(1000);
+		loto.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataGrckiloto2() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(3);
 		loto.uplata().clear();
-		loto.uplata().sendKeys("10");
-		Thread.sleep(1000);
-		loto.uplataSingl().click();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
 		loto.uplataDugme2().click();
-		Thread.sleep(7000);
-		String title2 = loto.title().getText();
-		if(title2.contains("Stanje novca")) {
-			log.info("Grcki kino singl zbir veci od 20 uspesno uplacen");
-			log.info(title2);
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Grcki kino sa TRI broja uspesno uplacen");
+			log.info(loto.title().getText());
 		}
 		else {
-			log.error("Grcki kino singl zbir veci od 20 nije uplacen");
+			log.error("Grcki kino nije uplacen");
 		}
-		loto.UreduDugme().click();
+		loto.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataGrckiloto3() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(4);
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Grcki kino sa CETIRI broja uspesno uplacen");
+			log.info(loto.title().getText());
 		}
-		
-//		@Test
-//		public void UplataItalijanskiloto() throws IOException, InterruptedException {
-//		LandingPage lp = new LandingPage(driver);
-//		lp.getMojBroj().click();
-//		Thread.sleep(1000);
-//		LotoPage loto = new LotoPage(driver);
-//		
-//		//obican italijanski loto tiket
-//		loto.ItalijanskiLotoTime().click();
-//		loto.ItalijanskiLotoKugla1().click();
-//		loto.ItalijanskiLotoKugla2().click();
-//		loto.ItalijanskiLotoKugla3().click();;
-//		loto.uplataDugme().click();
-//		loto.uplataDugme2().click();
-//		Thread.sleep(2000);
-//		String title4 = loto.title2().getText();
-//		if(title4.contains("Moj broj | ITALIJANSKI"))
-//			log.info("Italijanski kino uspesno uplacen");
-//		else {
-//			log.error("Italijanski kino nije uplacen");
-//		}
-//		loto.UreduDugme().click();
-//		//sistemski italijanski loto tiket
-//		loto.ItalijanskiLotoKugla1().click();
-//		loto.ItalijanskiLotoKugla2().click();
-//		loto.ItalijanskiLotoKugla3().click();
-//		loto.sistemski().click();
-//		loto.uplataDugme().click();
-//		loto.uplataDugme2().click();
-//		Thread.sleep(2000);
-//		String title5 = loto.title2().getText();
-//		if(title5.contains("Moj broj | ITALIJANSKI"))
-//			log.info("Italijanski sistemski kino uspesno uplacen");
-//		else {
-//			log.info("Italijanski sistemski kino nije uplacen");
-//		}
-//		loto.UreduDugme().click();
-//		}
-		
-//	@AfterTest(alwaysRun = true)
-//	public void teardown() {
-//		driver.close();
-//		driver.quit();
-//	}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski1() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(2);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa DVA broja uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski2() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(3);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa TRI broja uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski3() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(4);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa CETIRI broja uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski4() throws IOException, InterruptedException {
 
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(5);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa PET brojeva uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski5() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(6);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa SEST brojeva uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski6() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(7);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa SEDAM brojeva uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=1)
+	public void uplataGrckilotoSistemski7() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(8);
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa OSAM brojeva uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=2)
+	public void uplataGrckilotoSistemskiZaViseKola() throws IOException, InterruptedException {
+		LotoPage loto = new LotoPage(driver);
+		//grcki sistem loto tiket
+		wait_time(1);
+		moveToElementAndClick(loto.grckiLotoTime());
+		selectRandomLotoNumberGermania(3);
+		selectRandomLotoKoloGermania();
+		loto.checkbox().click();
+		loto.uplata().clear();
+		loto.uplata().sendKeys("5");
+		loto.uplataDugme().click();
+		loto.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+			log.info("Sistemski grcki kino sa TRI broja za vise kola uspesno uplacen");
+			log.info(loto.title().getText());
+		}
+		else {
+			log.error("Grcki kino nije uplacen");
+		}
+		loto.ureduDugme().click();
+	}
+	
+	@Test(priority=3)
+	public void uplataGrckilotoSingl() throws IOException, InterruptedException {
+	LotoPage loto = new LotoPage(driver);
+	selectRandomSinglLotoGermania();
+	loto.uplata().clear();
+	loto.uplata().sendKeys("10");		
+	loto.uplataSingl().click();
+	loto.uplataDugme2().click();
+	if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+		log.info("Grcki kino SINGL uspesno uplacen");
+		log.info(loto.title().getText());
+	}
+	else {
+		log.error("Grcki kino nije uplacen");
+	}
+	loto.ureduDugme().click();
 }
+	
+	@Test(priority=3)
+	public void uplataGrckilotoSing1l() throws IOException, InterruptedException {
+	LotoPage loto = new LotoPage(driver);
+	selectRandomSinglLotoGermania();
+	loto.uplata().clear();
+	loto.uplata().sendKeys("10");		
+	loto.uplataSingl().click();
+	loto.uplataDugme2().click();
+	if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+		log.info("Grcki kino SINGL uspesno uplacen");
+		log.info(loto.title().getText());
+	}
+	else {
+		log.error("Grcki kino nije uplacen");
+	}
+	loto.ureduDugme().click();
+}
+	
+	@Test(priority=4)
+	public void uplataGrckilotoSingl2() throws IOException, InterruptedException {
+	LotoPage loto = new LotoPage(driver);
+	selectRandomSinglLotoLowHigh();
+	loto.uplata().clear();
+	loto.uplata().sendKeys("10");		
+	loto.uplataSingl().click();
+	loto.uplataDugme2().click();
+	if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", loto.title())) {
+		log.info("Grcki kino SINGL uspesno uplacen");
+		log.info(loto.title().getText());
+	}
+	else {
+		log.error("Grcki kino nije uplacen");
+	}
+	loto.ureduDugme().click();
+}
+}
+

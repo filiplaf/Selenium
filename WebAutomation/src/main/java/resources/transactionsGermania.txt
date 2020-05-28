@@ -1,0 +1,21 @@
+USERNAME je jakov13
+**********************************
+Odabrani dan
+Vrijeme
+Vrsta
+Iznos
+(HRK)
+Raspoloživo
+(HRK)
+09.05 sub. 14:55:01
+Korekcija uplate novca
+- 2.000,00
+100.000,00
+09.05 sub. 14:52:14
+Uplata na ra?un
++2.000,00
+102.000,00
+09.05 sub. 14:51:49
+Uplata na ra?un
++100.000,00
+100.000,00

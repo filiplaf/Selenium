@@ -1,0 +1,116 @@
+USERNAME je jakov13
+**********************************
+Odabrani dan
+Vrijeme
+Vrsta
+Iznos
+(HRK)
+Raspoloživo
+(HRK)
+11.05 pon. 10:13:40
+Uplata listi?a - Kla?enje
+1822069998045974
+- 20.000,00
+58.353,75
+11.05 pon. 10:12:53
+Uplata listi?a - Kla?enje
+1822069996428090
+- 200,00
+78.353,75
+11.05 pon. 10:12:04
+Uplata listi?a - Kla?enje
+1822069998385635
+- 20.000,00
+78.553,75
+11.05 pon. 10:12:02
+Isplata listi?a - Loto
+6999182249041604
++4,45
+98.553,75
+11.05 pon. 10:07:04
+Isplata listi?a - Loto
+6999182284438600
++4,45
+98.549,30
+11.05 pon. 10:01:56
+Isplata listi?a - Virtualne igre
+6999018221397196
++3,01
+98.544,85
+11.05 pon. 09:56:32
+Uplata listi?a - Virtualne igre
+6999018222678927
+- 2,00
+98.541,84
+11.05 pon. 09:56:04
+Uplata listi?a - Virtualne igre
+6999018221397196
+- 2,00
+98.543,84
+11.05 pon. 09:55:07
+Uplata listi?a - Kla?enje (benefit)
+1822069994089694
+151,00
+-
+11.05 pon. 09:52:06
+Isplata listi?a - Loto
+6999182231652175
++1,98
+98.545,84
+11.05 pon. 09:52:04
+Isplata listi?a - Loto
+6999182269756248
++4,45
+98.543,86
+11.05 pon. 09:52:04
+Isplata listi?a - Loto
+6999182247376107
++2,54
+98.539,41
+11.05 pon. 09:45:38
+Uplata listi?a - Lucky
+6999182265878129
+- 10,00
+98.530,00
+11.05 pon. 09:45:38
+Uplata listi?a - Lucky
+6999182210662040
+- 10,00
+98.520,00
+11.05 pon. 09:45:24
+Uplata listi?a - Lucky
+6999182273795820
+- 10,00
+98.540,00
+11.05 pon. 09:45:11
+Uplata listi?a - Lucky
+6999182200046326
+- 10,00
+98.550,00
+11.05 pon. 09:44:57
+Uplata listi?a - Lucky
+6999182289447494
+- 10,00
+98.560,00
+11.05 pon. 09:44:44
+Uplata listi?a - Lucky
+6999182250973685
+- 10,00
+98.570,00
+11.05 pon. 09:44:29
+Uplata listi?a - Loto
+6999182238067046
+- 10,00
+98.580,00
+11.05 pon. 09:44:26
+Uplata listi?a - Loto
+6999182200211890
+- 10,00
+98.590,00
+Prev
+1
+2
+3
+4
+5
+Next

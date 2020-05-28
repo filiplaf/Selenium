@@ -3,8 +3,6 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import pageObjectsGermania.GrckiTomboPage;
@@ -14,25 +12,18 @@ import resources.base;
 public class UplataLuckyGTiket extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 
-	@Test
-	public void Uplata() throws IOException, InterruptedException {
+	@Test(priority=4)
+	public void uplataLuckyGTiketa1() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.Loto()).perform();
-		Thread.sleep(1000);
-		lp.LuckyG().click();
-		Thread.sleep(2000);
-		lp.Loto().click();
-		Thread.sleep(2000);
-		lp.LuckyG().click();
+		lp.loto().click();
+		moveToElementAndClick(lp.luckyG());
+		wait_time(1);
 		GrckiTomboPage gt = new GrckiTomboPage(driver);
-		
+		moveToElementAndClick(gt.grckiTomboTime());
 		//G2 tiket;
-		gt.GrckiTombo2Kugla1().click();
-		gt.GrckiTombo2Kugla2().click();
+		selectRandomGNumberGermania(2);
 		gt.uplata().clear();
 		gt.uplata().sendKeys("10");
-		Thread.sleep(1000);
 		try
 		{
 		if(gt.activeDugme().isDisplayed()) {
@@ -40,37 +31,36 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 				gt.activeDugme().click();
 				gt.uplataDugme().click();
 				gt.uplataDugme2().click();
-				Thread.sleep(10000);
-				String title = gt.title().getText();
-				if(title.contains("Stanje novca")) {
+				if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
 					log.info("G2 tiket uspesno uplacen");
-					log.info(title);
+					log.info(gt.title().getText());
 				}
 				else {
-					log.error("G2 tiket nije uplacen");
+					log.error("Grcki kino nije uplacen");
 				}
-				gt.UreduDugme().click();
-		}
+				gt.ureduDugme().click();
+			}
 		}
 		catch(Exception e) {
 		gt.uplataDugme().click();
 		gt.uplataDugme2().click();
-		Thread.sleep(10000);
-		String title = gt.title().getText();
-		if(title.contains("Stanje novca")) {
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
 			log.info("G2 tiket uspesno uplacen");
-			log.info(title);
+			log.info(gt.title().getText());
 		}
 		else {
 			log.error("G2 tiket nije uplacen");
 		}
-		gt.UreduDugme().click();
-		}
-		
+		gt.ureduDugme().click();
+	}
+	}	
+	
+	@Test(priority=4)
+	public void uplataLuckyGTiketa2() throws IOException, InterruptedException {
+		GrckiTomboPage gt = new GrckiTomboPage(driver);
 		//G3 tiket
-		gt.GrckiTombo3Kugla1().click();
-		gt.GrckiTombo3Kugla2().click();
-		gt.GrckiTombo3Kugla3().click();
+		wait_time(1);
+		selectRandomGNumberGermania(3);
 		try
 		{
 		if(gt.activeDugme().isDisplayed()) {
@@ -78,117 +68,139 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 				gt.activeDugme().click();
 				gt.uplataDugme().click();
 				gt.uplataDugme2().click();
-				Thread.sleep(10000);
-				String title = gt.title().getText();
-				if(title.contains("Stanje novca")) {
+				if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
 					log.info("G3 tiket uspesno uplacen");
-					log.info(title);
+					log.info(gt.title().getText());
 				}
 				else {
 					log.error("G3 tiket nije uplacen");
 				}
-				gt.UreduDugme().click();
-		}
+				gt.ureduDugme().click();
+			}
 		}
 		catch(Exception e) {
 		gt.uplataDugme().click();
 		gt.uplataDugme2().click();
-		Thread.sleep(10000);
-		String title = gt.title().getText();
-		if(title.contains("Stanje novca")) {
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
 			log.info("G3 tiket uspesno uplacen");
-			log.info(title);
+			log.info(gt.title().getText());
 		}
 		else {
 			log.error("G3 tiket nije uplacen");
 		}
-		gt.UreduDugme().click();
-		}
-		
+		gt.ureduDugme().click();
+	}
+	}	
+	
+	@Test(priority=4)
+	public void uplataLuckyGTiketa3() throws IOException, InterruptedException {
+		GrckiTomboPage gt = new GrckiTomboPage(driver);
 		//G4 tiket
-		gt.GrckiTombo4Kugla1().click();
-		gt.GrckiTombo4Kugla2().click();
-		gt.GrckiTombo4Kugla3().click();
-		gt.GrckiTombo4Kugla4().click();
-		try 		
+		wait_time(1);
+		selectRandomGNumberGermania(4);
+		try
 		{
 		if(gt.activeDugme().isDisplayed()) {
 		System.out.println("Aktivno dugme je bilo prikazano");
-		gt.activeDugme().click();
+				gt.activeDugme().click();
+				gt.uplataDugme().click();
+				gt.uplataDugme2().click();
+				if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
+					log.info("G4 tiket uspesno uplacen");
+					log.info(gt.title().getText());
+				}
+				else {
+					log.error("G4 tiket nije uplacen");
+				}
+				gt.ureduDugme().click();
+			}
+		}
+		catch(Exception e) {
 		gt.uplataDugme().click();
 		gt.uplataDugme2().click();
-		Thread.sleep(10000);
-		String title = gt.title().getText();
-		if(title.contains("Stanje novca")) {
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
 			log.info("G4 tiket uspesno uplacen");
-			log.info(title);
+			log.info(gt.title().getText());
 		}
 		else {
 			log.error("G4 tiket nije uplacen");
 		}
-		gt.UreduDugme().click();
-			}
-		}
-		catch(Exception e) {
-			gt.uplataDugme().click();
-			gt.uplataDugme2().click();
-			Thread.sleep(10000);
-			String title = gt.title().getText();
-			if(title.contains("Stanje novca")) {
-				log.info("G4 tiket uspesno uplacen");
-				log.info(title);
-			}
-			else {
-				log.error("G4 tiket nije uplacen");
-			}
-			gt.UreduDugme().click();
-			}
-		
+		gt.ureduDugme().click();
+	}
+	}
+	
+	@Test(priority=4)
+	public void uplataLuckyGTiketa4() throws IOException, InterruptedException {
+		GrckiTomboPage gt = new GrckiTomboPage(driver);
 		//G5 tiket
-		gt.GrckiTombo5Kugla1().click();
-		gt.GrckiTombo5Kugla2().click();
-		gt.GrckiTombo5Kugla3().click();
-		gt.GrckiTombo5Kugla4().click();
-		gt.GrckiTombo5Kugla5().click();
-		try 		
+		wait_time(1);
+		selectRandomGNumberGermania(5);
+		try
 		{
 		if(gt.activeDugme().isDisplayed()) {
 		System.out.println("Aktivno dugme je bilo prikazano");
-		gt.activeDugme().click();
+				gt.activeDugme().click();
+				gt.uplataDugme().click();
+				gt.uplataDugme2().click();
+				if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
+					log.info("G5 tiket uspesno uplacen");
+					log.info(gt.title().getText());
+				}
+				else {
+					log.error("G5 tiket nije uplacen");
+				}
+				gt.ureduDugme().click();
+			}
+		}
+		catch(Exception e) {
 		gt.uplataDugme().click();
 		gt.uplataDugme2().click();
-		Thread.sleep(10000);
-		String title = gt.title().getText();
-		if(title.contains("Stanje novca")) {
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
 			log.info("G5 tiket uspesno uplacen");
-			log.info(title);
+			log.info(gt.title().getText());
 		}
 		else {
 			log.error("G5 tiket nije uplacen");
 		}
-		gt.UreduDugme().click();
+		gt.ureduDugme().click();
+	}
+	}
+	
+	@Test(priority=5)
+	public void uplataLuckyGTiketaZaViseKola() throws IOException, InterruptedException {
+		GrckiTomboPage gt = new GrckiTomboPage(driver);
+		//G3 tiket za vise kola
+		wait_time(1);
+		selectRandomGNumberGermania(3);
+		selectRandomGKoloGermania();
+		try
+		{
+		if(gt.activeDugme().isDisplayed()) {
+		System.out.println("Aktivno dugme je bilo prikazano");
+				gt.activeDugme().click();
+				gt.uplataDugme().click();
+				gt.uplataDugme2().click();
+				if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
+					log.info("G3 tiket za vise kola uspesno uplacen");
+					log.info(gt.title().getText());
+				}
+				else {
+					log.error("G3 tiket za vise kola nije uplacen");
+				}
+				gt.ureduDugme().click();
+			}
 		}
+		catch(Exception e) {
+		gt.uplataDugme().click();
+		gt.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Uspješno ste uplatili listić", gt.title())) {
+			log.info("G3 tiket za vise kola uspesno uplacen");
+			log.info(gt.title().getText());
 		}
-	catch(Exception e) {
-	gt.uplataDugme().click();
-	gt.uplataDugme2().click();
-	Thread.sleep(10000);
-	String title = gt.title().getText();
-	if(title.contains("Stanje novca")) {
-		log.info("G5 tiket uspesno uplacen");
-		log.info(title);
-	}
-	else {
-		log.error("G5 tiket nije uplacen");
-	}
-	gt.UreduDugme().click();
-	}
+		else {
+			log.error("G3 tiket za vise kola nije uplacen");
 		}
-
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
-		driver.close();
-		driver.quit();
+		gt.ureduDugme().click();
 	}
-
+	}
 }

@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>TestNG:  Logovanje i uplata loto tiketa</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Logovanje i uplata loto tiketa</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>21/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 25 11:03:38 CEST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>124 seconds (124281 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='MozzartSrbija.UplataGrckiTomboTiket.UplataG2()'><b>UplataG2</b><br>Test class: MozzartSrbija.UplataGrckiTomboTiket</td>
+<td></td>
+<td>16</td>
+<td>MozzartSrbija.UplataGrckiTomboTiket@225ddf5f</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataGrckiTomboTiket.UplataG3()'><b>UplataG3</b><br>Test class: MozzartSrbija.UplataGrckiTomboTiket</td>
+<td></td>
+<td>12</td>
+<td>MozzartSrbija.UplataGrckiTomboTiket@225ddf5f</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataGrckiTomboTiket.UplataG4()'><b>UplataG4</b><br>Test class: MozzartSrbija.UplataGrckiTomboTiket</td>
+<td></td>
+<td>12</td>
+<td>MozzartSrbija.UplataGrckiTomboTiket@225ddf5f</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataGrckiTomboTiket.UplataG5()'><b>UplataG5</b><br>Test class: MozzartSrbija.UplataGrckiTomboTiket</td>
+<td></td>
+<td>12</td>
+<td>MozzartSrbija.UplataGrckiTomboTiket@225ddf5f</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataGrckiTomboTiket.UplataGZaViseKola()'><b>UplataGZaViseKola</b><br>Test class: MozzartSrbija.UplataGrckiTomboTiket</td>
+<td></td>
+<td>13</td>
+<td>MozzartSrbija.UplataGrckiTomboTiket@225ddf5f</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckiloto1()'><b>UplataGrckiloto1</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>2</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckiloto2()'><b>UplataGrckiloto2</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>2</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckiloto3()'><b>UplataGrckiloto3</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>2</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckiloto4()'><b>UplataGrckiloto4</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>2</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSingl()'><b>UplataGrckilotoSingl</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>1</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSingl1()'><b>UplataGrckilotoSingl1</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>1</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSingl2()'><b>UplataGrckilotoSingl2</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>1</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem1()'><b>UplataGrckilotoSistem1</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>3</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem2()'><b>UplataGrckilotoSistem2</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>3</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem3()'><b>UplataGrckilotoSistem3</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>3</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem4()'><b>UplataGrckilotoSistem4</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>3</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem5()'><b>UplataGrckilotoSistem5</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>3</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem6()'><b>UplataGrckilotoSistem6</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>4</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoSistem7()'><b>UplataGrckilotoSistem7</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>4</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.UplataLotoTiketa.UplataGrckilotoZaViseKola()'><b>UplataGrckilotoZaViseKola</b><br>Test class: MozzartSrbija.UplataLotoTiketa</td>
+<td></td>
+<td>7</td>
+<td>MozzartSrbija.UplataLotoTiketa@6be422da</td></tr>
+<tr>
+<td title='MozzartSrbija.Login.mozzartHomePage()'><b>mozzartHomePage</b><br>Test class: MozzartSrbija.Login<br>Parameters: jakov16, 8888888A</td>
+<td></td>
+<td>9</td>
+<td>MozzartSrbija.Login@291cbe70</td></tr>
+</table><p>
+</body>
+</html>

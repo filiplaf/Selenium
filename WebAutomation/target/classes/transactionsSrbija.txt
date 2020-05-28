@@ -1,0 +1,104 @@
+USERNAME je jakov15
+**********************************
+Vreme
+Vrsta
+Iznos
+(RSD)
+Raspoloživo
+(RSD)
+15.05 pet. 15:41:18
+Transfer novca - Kla?enje --> Kazino
+- 6.054,36
+89.303,44
+15.05 pet. 15:41:18
+transactions_types.CASINO_JACKPOT_ADVANCE_PAY_IN .type_name
++6.054,36
+0
+15.05 pet. 15:41:18
+Transfer novca - Kla?enje --> Kazino
+- 720.710,58
+89.303,44
+15.05 pet. 15:41:18
+transactions_types.CASINO_JACKPOT_ADVANCE_PAY_IN .type_name
++720.710,58
+0
+15.05 pet. 15:41:17
+Transfer novca - Kla?enje --> Kazino
+- 730.377,38
+89.303,44
+15.05 pet. 15:41:17
+transactions_types.CASINO_JACKPOT_ADVANCE_PAY_IN .type_name
++730.377,38
+0
+15.05 pet. 15:41:17
+Transfer novca - Kla?enje --> Kazino
+- 1.468.918,74
+89.303,44
+15.05 pet. 15:41:17
+transactions_types.CASINO_JACKPOT_ADVANCE_PAY_IN .type_name
++1.468.918,74
+0
+15.05 pet. 15:40:03
+Transfer novca - Kla?enje --> Kazino
+- 1.000,00
+89.303,44
+15.05 pet. 15:40:02
+Transfer novca - Kla?enje --> Kazino
+- 2.000,00
+90.303,44
+15.05 pet. 15:37:24
+Uplata tiketa - Lucky 6
+1137018244154206
+- 50,00
+92.353,44
+15.05 pet. 15:37:24
+Uplata tiketa - Lucky 6
+1137018242888181
+- 50,00
+92.303,44
+15.05 pet. 15:37:21
+Uplata tiketa - Lucky 6
+1137018248313512
+- 100,00
+92.403,44
+15.05 pet. 15:37:18
+Uplata tiketa - Lucky 6
+1137018240295996
+- 700,00
+92.503,44
+15.05 pet. 15:37:15
+Uplata tiketa - Lucky 6
+1137018240757771
+- 300,00
+93.203,44
+15.05 pet. 15:37:11
+Uplata tiketa - Lucky 6
+1137018243907074
+- 100,00
+93.503,44
+15.05 pet. 15:37:08
+Uplata tiketa - Lucky 6
+1137018245950551
+- 50,00
+93.603,44
+15.05 pet. 15:37:01
+Isplata tiketa - Moj Broj
+1137182460265171
++59,10
+93.653,44
+15.05 pet. 15:37:01
+Isplata tiketa - Moj Broj
+1137182417460597
++37,50
+93.594,34
+15.05 pet. 15:37:01
+Isplata tiketa - Moj Broj
+1137182423010093
++22,50
+93.556,84
+Prev
+1
+2
+3
+4
+Next

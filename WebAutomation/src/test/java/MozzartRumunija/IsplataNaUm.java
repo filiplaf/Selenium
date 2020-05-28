@@ -4,7 +4,6 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -16,46 +15,39 @@ public class IsplataNaUm extends base{
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Isplata() throws IOException, InterruptedException {
+	public void isplataNaUplatnoMesto() throws IOException, InterruptedException {
 		LandingPage lp = new LandingPage(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(lp.getKorisnik()).perform();
-		Thread.sleep(2000);
-		lp.getCont().click();
+		moveToElementAndClick(lp.getKorisnik());
 		MojRacun mr = new MojRacun(driver);
-		Thread.sleep(15000);
-		mr.Isplata().click();
-		Thread.sleep(2000);
-		mr.NaUplatnoMesto().click();
+		wait_time(1);
+		mr.isplata().click();
+		mr.naUplatnoMesto().click();
 		
-		//Isplata na Bucurest UM
-		Thread.sleep(5000);
-		mr.UplatnoMesto().click();
-		mr.Bucurest().click();
-		mr.Iznos().sendKeys("100");
-		Thread.sleep(5000);                // OVA CEKANJA MORAJU DA SE POBOLJSAJU KODOM
-		mr.Isplati().click();
-		Thread.sleep(15000);
-		log.info("Isplata na Bukurest UM od 100 ron");
+		//Isplata na Buzau UM
+		wait_time(1);
+		mr.uplatnoMesto().click();
+		mr.webRo().click();
+		mr.iznos().sendKeys("100");
+		mr.isplati().click();
+		log.info(mr.title().getText());
+		mr.inchide().click();
+		log.info("Isplata na Buzau UM od 100 ron");
 		
-		//mr.Isplata().click();
-		mr.Iznos().sendKeys(Keys.CONTROL + "a");
-		mr.Iznos().sendKeys(Keys.DELETE);
-		mr.Iznos().sendKeys("200");
-		Thread.sleep(5000);
-		mr.Isplati().click();
-		Thread.sleep(15000);
-		log.info("Isplata na Bukurest UM od 200 ron");
+		mr.iznos().sendKeys(Keys.CONTROL + "a");
+		mr.iznos().sendKeys(Keys.DELETE);
+		mr.iznos().sendKeys("200");
+		mr.isplati().click();
+		log.info(mr.title().getText());
+		mr.inchide().click();
+		log.info("Isplata na Buzau UM od 200 ron");
 		
-		//mr.Isplata().click();
-		mr.Iznos().sendKeys(Keys.CONTROL + "a");
-		mr.Iznos().sendKeys(Keys.DELETE);
-		mr.Iznos().sendKeys("300");
-		Thread.sleep(5000);
-		mr.Isplati().click();
-		Thread.sleep(15000);
-		log.info("Isplata na Bukurest UM od 300 ron");
-		
+		mr.iznos().sendKeys(Keys.CONTROL + "a");
+		mr.iznos().sendKeys(Keys.DELETE);
+		mr.iznos().sendKeys("300");
+		mr.isplati().click();
+		log.info(mr.title().getText());
+		mr.inchide().click();
+		log.info("Isplata na Buzau UM od 300 ron");
 		}
 		
 	@AfterTest(alwaysRun = true)
@@ -63,5 +55,4 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		driver.close();
 		driver.quit();
 	}
-
 }

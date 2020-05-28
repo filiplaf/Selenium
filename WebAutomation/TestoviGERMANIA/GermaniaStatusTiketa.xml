@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" configfailurepolicy="skip">
+
+<listeners>
+<listener class-name="resources.listeners"/>
+<listener class-name="resources.ExtentReporterNG"/>
+</listeners>
+
+  	<test thread-count="5" name="Ocitavanje statusa sportskog tiketa">
+      <classes>
+      <class name="MozzartGermania.Login"/>
+	  <class name="MozzartGermania.SportskiKodTiketa"/>
+	  <class name="MozzartGermania.StatusSportskogTiketa"/> 
+    </classes>
+   </test>
+   
+    <test thread-count="1" name="Gasenje browsera i webdrivera">
+    <classes>
+      <class name="MozzartGermania.TerminateBrowser"/>
+    </classes>
+  </test>
+  
+ <test thread-count="5" name="Ocitavanje statusa loto tiketa">
+   <classes>
+      <class name="MozzartGermania.Login"/>
+	  <class name="MozzartGermania.LotoKodTiketa"/>
+	  <class name="MozzartGermania.StatusLotoTiketa"/> 
+   </classes>
+  </test>
+ 
+   <test thread-count="1" name="Gasenje browsera i webdrivera2">
+    <classes>
+      <class name="MozzartGermania.TerminateBrowser"/>
+    </classes>
+  </test>
+  <!-- Test --> 
+</suite> <!-- Suite -->

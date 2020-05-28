@@ -1,45 +1,128 @@
 package MozzartMalta;
-import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-//import pageObjectsMozzart.KladjenjePage;
-import pageObjectsMalta.LandingPage;
 import pageObjectsMalta.SportsPage;
+import pageObjectsMalta.LandingPage;
 import resources.base;
 
 public class UplataTiketa extends base {
 public static Logger log = LogManager.getLogger(base.class.getName());
 	
 	@Test
-	public void Uplata() throws IOException, InterruptedException {
+	public void uplataSingla() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
 		LandingPage lp = new LandingPage(driver);
-		//Thread.sleep(1000);
-		lp.getSports().click();
-		Thread.sleep(2000);
+		lp.sports().click();
+		wait_time(3);
 		SportsPage sp = new SportsPage(driver);
-		sp.getmec1().click();
-		sp.getmec2().click();
-		sp.getmec3().click();
-		sp.getmec4().click();
+		selectRandomMatchMalta(1);
+		takeScreenshotMalta(name);
 		sp.uplata().clear();
 		sp.uplata().sendKeys("20");
 		sp.uplataDugme().click();
 		sp.uplataDugme2().click();
-		Thread.sleep(2000);
-		String title = sp.title().getText();
-		log.info(title);
-		log.info("Obican tiket uplacen");
-		sp.UreduDugme().click();
-		
+		if(waitForTextToAppear(driver, "Your bet has been successfully placed.", sp.title())) {
+			log.info("SINGL tiket uspesno uplacen");
+			log.info(sp.title().getText());
 		}
-	@AfterTest(alwaysRun = true)
-	public void teardown() {
-//		driver.close();
-//		driver.quit();
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		sp.ureduDugme().click();
 	}
-
+	
+	@Test
+	public void uplataTiket1() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.sports().click();
+		wait_time(3);
+		SportsPage sp = new SportsPage(driver);
+		selectRandomMatchMalta(2);
+		takeScreenshotMalta(name);
+		sp.uplata().clear();
+		sp.uplata().sendKeys("21");
+		sp.uplataDugme().click();
+		sp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Your bet has been successfully placed.", sp.title())) {
+			log.info("Tiket od DVA PARA uspesno uplacen");
+			log.info(sp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		sp.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataTiket2() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.sports().click();
+		wait_time(3);
+		SportsPage sp = new SportsPage(driver);
+		selectRandomMatchMalta(3);
+		takeScreenshotMalta(name);
+		sp.uplata().clear();
+		sp.uplata().sendKeys("22");
+		sp.uplataDugme().click();
+		sp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Your bet has been successfully placed.", sp.title())) {
+			log.info("Tiket od TRI PARA uspesno uplacen");
+			log.info(sp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		sp.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataTiket3() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.sports().click();
+		wait_time(3);
+		SportsPage sp = new SportsPage(driver);
+		selectRandomMatchMalta(4);
+		takeScreenshotMalta(name);
+		sp.uplata().clear();
+		sp.uplata().sendKeys("23");
+		sp.uplataDugme().click();
+		sp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Your bet has been successfully placed.", sp.title())) {
+			log.info("Tiket od CETIRI PARA uspesno uplacen");
+			log.info(sp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		sp.ureduDugme().click();
+	}
+	
+	@Test
+	public void uplataTiket4() throws Exception {
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		LandingPage lp = new LandingPage(driver);
+		lp.sports().click();
+		wait_time(3);
+		SportsPage sp = new SportsPage(driver);
+		selectRandomMatchMalta(5);
+		takeScreenshotMalta(name);
+		sp.uplata().clear();
+		sp.uplata().sendKeys("24");
+		sp.uplataDugme().click();
+		sp.uplataDugme2().click();
+		if(waitForTextToAppear(driver, "Your bet has been successfully placed.", sp.title())) {
+			log.info("Tiket od PET PARA uspesno uplacen");
+			log.info(sp.title().getText());
+		}
+		else {
+			log.error("Tiket nije uplacen");
+		}
+		sp.ureduDugme().click();
+	}
 }

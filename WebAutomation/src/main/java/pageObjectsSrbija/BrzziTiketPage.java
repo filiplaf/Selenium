@@ -7,50 +7,50 @@ import org.openqa.selenium.WebElement;
 public class BrzziTiketPage {
 
 		public WebDriver driver;
-		By ObrisiDugme = By.cssSelector("section#right div.pointer.clear-all > button");
-		By mec1 = By.xpath("//*[@id=\"focus\"]/section[1]/div[3]/div[2]/article[1]/div/div[2]/div[1]/div[1]/span/span");
-		By mec2 = By.xpath("//*[@id=\"focus\"]/section[1]/div[3]/div[2]/article[2]/div/div[2]/div[1]/div[2]");
-		By mec3 = By.xpath("//*[@id=\"focus\"]/section[1]/div[3]/div[2]/article[3]/div/div[2]/div[2]/div[2]/span/span");
 		By uplata = By.cssSelector("input#bettingAmount");
+		By uplataSistemski = By.cssSelector("section#vbar-center div.payment > input");
 		By uplataDugme = By.cssSelector("section#right div.summary-body > button");
-		By BrzziTiketDugme = By.cssSelector("section#right a");
-		By title = By.cssSelector("#right > div > div.vb-content > section > section > section.overlay > section > section > footer > article > div > div.message");
-		By UreduDugme = By.cssSelector("section#right button.button.close");
-		By obican = By.cssSelector("#right > div > div.vb-content > section > section > header > div.left-part > div.pointer.regular");
+		By brzziTiketDugme = By.cssSelector("section#right a");
+		By title = By.cssSelector("div.confirmation-footer>article>div>div:nth-child(2)");
+		By ureduDugme = By.cssSelector("section#right button.button.close");
+		By obican = By.cssSelector("section#right div.pointer.regular");
+		By sistemski = By.cssSelector("section#right div.pointer.system");
+		By checkbox1 = By.cssSelector("section#vbar-center div:nth-child(1) > input");
+		By checkbox2 = By.cssSelector("section#vbar-center div:nth-child(2) > input");
 		
 		public BrzziTiketPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
 		}
 		
-		public WebElement ObrisiDugme() {
-			return driver.findElement(ObrisiDugme);
-		}
-		public WebElement getmec1() {
-			return driver.findElement(mec1);
-		}
-		public WebElement getmec2() {
-			return driver.findElement(mec2);
-		}
-		public WebElement getmec3() {
-			return driver.findElement(mec3);
-		}
 		public WebElement uplata() {
 			return driver.findElement(uplata);
+		}
+		public WebElement uplataSistemski() {
+			return driver.findElement(uplataSistemski);
 		}
 		public WebElement uplataDugme() {
 			return driver.findElement(uplataDugme);
 		}
 		public WebElement uplataDBrzziTiketDugmeugme2() {
-			return driver.findElement(BrzziTiketDugme);
+			return driver.findElement(brzziTiketDugme);
 		}
 		public WebElement title() {
 			return driver.findElement(title);
 		}
-		public WebElement UreduDugme() {
-			return driver.findElement(UreduDugme);
+		public WebElement ureduDugme() {
+			return driver.findElement(ureduDugme);
 		}
 		public WebElement obican() {
 			return driver.findElement(obican);
+		}
+		public WebElement sistemski() {
+			return driver.findElement(sistemski);
+		}
+		public WebElement checkbox1() {
+			return driver.findElement(checkbox1);
+		}
+		public WebElement checkbox2() {
+			return driver.findElement(checkbox2);
 		}
 }

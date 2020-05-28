@@ -7,83 +7,123 @@ import org.openqa.selenium.WebElement;
 public class MojRacun {
 
 		public WebDriver driver;
-		By Isplata = By.cssSelector("div#account-wrapper div:nth-child(3) > li");
-		By NaUplatnoMesto = By.cssSelector("section#mozzart div.table-row > div:nth-child(1)");
-		By NaSkrillRacun = By.cssSelector("section#skrill-ro div.table-row > div:nth-child(1)");
-		By UplatnoMesto = By.cssSelector("section#mozzart i");
-		By Iznos = By.cssSelector("section#mozzart input[type=\"text\"]");
-		By IznosZaSkrill = By.cssSelector("section#skrill-ro div:nth-child(1) > input[type=\"text\"]");
-		By MailZaTekuci = By.cssSelector("section#skrill-ro div:nth-child(2) > input[type=\"text\"]");
-		By Isplati = By.id("pay-btn-mozzart");
-		By IsplatiNaSkrill = By.id("pay-btn-skrill-ro");
-		By Um = By.cssSelector("span#account-businessunits-select-button > span.ui-selectmenu-text");
-		By Bucurest = By.xpath("//*[contains(text(), 'Bucuresti-2')]");
-		By Potvrdi = By.cssSelector("div#account-wrapper div.close-popup");
-		By Title = By.cssSelector("#popup-holder > div.balance-info-popup > div.balance-info.true > p");
-		By ZatvoriDugme = By.cssSelector("div#popup-holder button.button.ok");
-		By Transakcije = By.cssSelector("div#account-wrapper div:nth-child(4) > li");
-		By TransakcijeTitle = By.cssSelector("#account-wrapper > section.account-container > div.account-container-center > div > div.transactions-table");
-		By Kalendar = By.cssSelector("div#account-wrapper input[type=\"text\"]");
-		By TransactionExist = By.cssSelector(".cell.day.highlighted");
+		By isplata = By.cssSelector("div#account-wrapper div:nth-child(3) > li");
+		By naUplatnoMesto = By.cssSelector("section#mozzart div.table-row > div:nth-child(1)");
+		By naSkrillRacun = By.cssSelector("section#skrill-ro div.table-row > div:nth-child(1)");
+		By uplatnoMesto = By.cssSelector("section#mozzart i");
+		By iznos = By.cssSelector("section#mozzart input[type=\"text\"]");
+		By iznosZaSkrill = By.cssSelector("section#skrill-ro div:nth-child(1) > input[type=\"text\"]");
+		By mailZaTekuci = By.cssSelector("section#skrill-ro div:nth-child(2) > input[type=\"text\"]");
+		By isplati = By.id("pay-btn-mozzart");
+		By isplatiNaSkrill = By.id("pay-btn-skrill-ro");
+		By um = By.cssSelector("span#account-businessunits-select-button > span.ui-selectmenu-text");
+		By webRo = By.xpath("//*[contains(text(), 'Mozzartweb')]");
+		By potvrdi = By.cssSelector("div#account-wrapper div.popup-window.active > div > div.popup-footer > div.close-popup");
+		By title = By.cssSelector("section#mozzart div.popup-window.active > div > div.popup-body > p");
+		By zatvoriDugme = By.cssSelector("div#popup-holder button.button.ok");
+		By transakcije = By.cssSelector("div#account-wrapper div:nth-child(4) > li");
+		By transakcijeTitle = By.cssSelector("#account-wrapper > section.account-container > div.account-container-center > div > div.transactions-table");
+		By transakcijeTable = By.xpath("#account-wrapper > section.account-container > div.account-container-center > div > div.transactions-table > div > div.transactions");
+		By kalendar = By.cssSelector("div#account-wrapper input[type=\"text\"]");
+		By datum = By.cssSelector("div#account-wrapper article:nth-child(1) > article > div.cell.date");
+		By transactionExist = By.cssSelector(".cell.day.highlighted");
+		By inchide = By.cssSelector("section#mozzart div.popup-window.active > div > div.popup-footer > div:nth-child(1)");
+		By incarcare_document = By.cssSelector("div#account-wrapper div:nth-child(8) > li");
+		By successTitle = By.cssSelector("div#account-wrapper div.popup-window.active > div > div.popup-body");
+		By bilete = By.cssSelector("div#account-wrapper div:nth-child(5) > li");
+		By sportskiTiket = By.xpath("//*[contains(@class,'cell type') and contains(.,'Pariuri sportive')]");
+		By kodSportski = By.cssSelector("div#account-wrapper p.ticket-id");
+		By lotoTiket = By.xpath("//*[contains(@class,'cell type') and contains(.,'Lotto')]");
+		By kodLoto = By.cssSelector("div#account-wrapper p.ticket-id");
 		
 		public MojRacun(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
 		}
 		
-		public WebElement Isplata() {
-			return driver.findElement(Isplata);
+		public WebElement isplata() {
+			return driver.findElement(isplata);
 		}
-		public WebElement NaUplatnoMesto() {
-			return driver.findElement(NaUplatnoMesto);
+		public WebElement naUplatnoMesto() {
+			return driver.findElement(naUplatnoMesto);
 		}
-		public WebElement NaSkrillRacun() {
-			return driver.findElement(NaSkrillRacun);
+		public WebElement naSkrillRacun() {
+			return driver.findElement(naSkrillRacun);
 		}
-		public WebElement UplatnoMesto() {
-			return driver.findElement(UplatnoMesto);
+		public WebElement uplatnoMesto() {
+			return driver.findElement(uplatnoMesto);
 		}
-		public WebElement Iznos() {
-			return driver.findElement(Iznos);
+		public WebElement iznos() {
+			return driver.findElement(iznos);
 		}
-		public WebElement IznosZaSkrill() {
-			return driver.findElement(IznosZaSkrill);
+		public WebElement iznosZaSkrill() {
+			return driver.findElement(iznosZaSkrill);
 		}
-		public WebElement Isplati() {
-			return driver.findElement(Isplati);
+		public WebElement isplati() {
+			return driver.findElement(isplati);
 		}
-		public WebElement IsplatiNaSkrill() {
-			return driver.findElement(IsplatiNaSkrill);
+		public WebElement isplatiNaSkrill() {
+			return driver.findElement(isplatiNaSkrill);
 		}
-		public WebElement MailZaTekuci() {
-			return driver.findElement(MailZaTekuci);
+		public WebElement mailZaTekuci() {
+			return driver.findElement(mailZaTekuci);
 		}
-		public WebElement Um() {
-			return driver.findElement(Um);
+		public WebElement um() {
+			return driver.findElement(um);
 		}
-		public WebElement Bucurest() {
-			return driver.findElement(Bucurest);
+		public WebElement webRo() {
+			return driver.findElement(webRo);
 		}
-		public WebElement Title() {
-			return driver.findElement(Title);
+		public WebElement title() {
+			return driver.findElement(title);
 		}
-		public WebElement ZatvoriDugme() {
-			return driver.findElement(ZatvoriDugme);
+		public WebElement zatvoriDugme() {
+			return driver.findElement(zatvoriDugme);
 		}
-		public WebElement Potvrdi() {
-			return driver.findElement(Potvrdi);
+		public WebElement potvrdi() {
+			return driver.findElement(potvrdi);
 		}
-		public WebElement Transakcije() {
-			return driver.findElement(Transakcije);
+		public WebElement transakcije() {
+			return driver.findElement(transakcije);
 		}
-		public WebElement TransakcijeTitle() {
-			return driver.findElement(TransakcijeTitle);
+		public WebElement transakcijeTitle() {
+			return driver.findElement(transakcijeTitle);
 		}
-		public WebElement TransactionExist() {
-			return driver.findElement(TransactionExist);
+		public WebElement transakcijeTable() {
+			return driver.findElement(transakcijeTable);
 		}
-		public WebElement Kalendar() {
-			return driver.findElement(Kalendar);
+		public WebElement transactionExist() {
+			return driver.findElement(transactionExist);
+		}
+		public WebElement kalendar() {
+			return driver.findElement(kalendar);
+		}
+		public WebElement datum() {
+			return driver.findElement(datum);
+		}
+		public WebElement inchide() {
+			return driver.findElement(inchide);
+		}
+		public WebElement incarcare_document() {
+			return driver.findElement(incarcare_document);
+		}
+		public WebElement successTitle() {
+			return driver.findElement(successTitle);
+		}
+		public WebElement bilete() {
+			return driver.findElement(bilete);
+		}
+		public WebElement sportskiTiket() {
+			return driver.findElement(sportskiTiket);
+		}
+		public WebElement lotoTiket() {
+			return driver.findElement(lotoTiket);
+		}
+		public WebElement kodSportski() {
+			return driver.findElement(kodSportski);
+		}
+		public WebElement kodLoto() {
+			return driver.findElement(kodLoto);
 		}
 		
 }

@@ -30,7 +30,12 @@
           </plugin>
     </plugins>
   </build>
-  
+    <properties>
+        <restassured.version>3.3.0</restassured.version>
+        <junit.version>4.12</junit.version>
+        <junit.dataprovider.version>2.4</junit.dataprovider.version>
+        <jackson.databind.version>2.9.8</jackson.databind.version>
+    </properties>
 <dependencies>
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
@@ -67,34 +72,16 @@
     <artifactId>selenium-remote-driver</artifactId>
     <version>3.141.59</version>
 </dependency>
- <!-- https://mvnrepository.com/artifact/org.json/json -->
-<!-- https://mvnrepository.com/artifact/org.json/json -->
 <dependency>
     <groupId>org.json</groupId>
     <artifactId>json</artifactId>
     <version>20190722</version>
 </dependency>
-
-<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 <dependency>
     <groupId>com.googlecode.json-simple</groupId>
     <artifactId>json-simple</artifactId>
     <version>1.1</version>
 </dependency>      
-<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-<!-- 	<dependency> -->
-<!-- 	<groupId>log4j</groupId> -->
-<!-- 	<artifactId>log4j</artifactId> -->
-<!-- 	<version>1.2.17</version> -->
-<!-- 	</dependency> -->
-<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
-<!-- 	<dependency> -->
-<!--     <groupId>org.slf4j</groupId> -->
-<!--     <artifactId>slf4j-log4j12</artifactId> -->
-<!--     <version>1.7.25</version> -->
-<!--     <scope>test</scope> -->
-<!-- </dependency> -->
-<!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
     <groupId>commons-io</groupId>
     <artifactId>commons-io</artifactId>
@@ -110,26 +97,6 @@
     <artifactId>extentreports</artifactId>
     <version>2.41.2</version>
 </dependency>
-  <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
-<!-- <dependency> -->
-<!--     <groupId>info.cukes</groupId> -->
-<!--     <artifactId>cucumber-java</artifactId> -->
-<!--     <version>1.2.5</version> -->
-<!-- </dependency> -->
-<!--  https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
-<!-- <dependency> -->
-<!--     <groupId>info.cukes</groupId> -->
-<!--     <artifactId>cucumber-junit</artifactId> -->
-<!--     <version>1.2.5</version> -->
-<!--     <scope>test</scope> -->
-<!-- </dependency> -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
-<!-- https://mvnrepository.com/artifact/com.applitools/eyes-selenium-java3 -->
 <dependency>
     <groupId>com.applitools</groupId>
     <artifactId>eyes-selenium-java3</artifactId>
@@ -154,6 +121,30 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>5.1.6</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restassured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.junit.dataprovider</groupId>
+            <artifactId>junit4-dataprovider</artifactId>
+            <version>${junit.dataprovider.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <version>2.21.0</version>
+        </dependency>
 </dependencies>
 </project>

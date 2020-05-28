@@ -7,15 +7,15 @@ import org.openqa.selenium.WebElement;
 public class OibPage {
 
 		public WebDriver driver;
-		By Oib = By.cssSelector("body > div.wrapper.top > div.oib");
+		By oib = By.cssSelector("body > div.wrapper.top > div.oib");
 		
 		public OibPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver;
 		}
 		
-		public WebElement Oib() {
-			return driver.findElement(Oib);
+		public WebElement oib() {
+			return driver.findElement(oib);
 		}
 		
 

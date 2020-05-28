@@ -20,8 +20,8 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 
 
 	@Test
-	public void PotvrdaMaila() throws InterruptedException, IOException {
-		Thread.sleep(7000);
+	public void potvrdaMaila() throws InterruptedException, IOException {
+		wait_time(7);;
 		driver = initializeDriver();
 		driver.get(prop.getProperty("url6"));
 		//Yomail
@@ -32,9 +32,7 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 		//Switch na frame i klik na link
 		WebElement iframeMsg = driver.findElement(By.id("ifmail"));
 		driver.switchTo().frame(iframeMsg); 
-		Thread.sleep(2000);
-//		WebElement mail = driver.findElement(By.xpath("//*[@id=\"mailmillieu\"]/div[2]/div"));
-//		String text = mail.getText();
+		wait_time(2);
 		WebElement Clicklink = driver.findElement(By.partialLinkText("activate"));
 		Clicklink.click();
 	
@@ -48,20 +46,18 @@ public static Logger log = LogManager.getLogger(base.class.getName());
 				    }
 				}
 	    //Logovanje i ispis korisnika
+		wait_time(1);
 	    WebElement password = driver.findElement(By.id("password"));
 	    password.sendKeys(r.password);
-		Thread.sleep(2000);
-	    WebElement login = driver.findElement(By.cssSelector("div#spa button[type=\"submit\"]"));
+	    WebElement login = driver.findElement(By.cssSelector("div#pageWrapper div.actions > button[type=\"submit\"]"));
 	    login.click();
-	    Thread.sleep(4000);
+	    wait_time(2);
 		LandingPage lp = new LandingPage(driver);
-		lp.znak().click();
+		driver.navigate().refresh();
 		lp.cookie().click();
-		Thread.sleep(2000);
-		WebElement ime = driver.findElement(By.cssSelector("div#pageWrapper div.balance-view.more-links > p"));
-		String Ime = ime.getText();
+		lp.user().click();
+		String Ime = lp.userName().getText();
 		log.info("Korisnik " +Ime+ " je uspesno ulogovan");
-		Thread.sleep(2000);
 	}
 	
 	@AfterTest(alwaysRun = true)

@@ -1,0 +1,113 @@
+USERNAME je jakov11
+**********************************
+Chosen day
+Time
+Type
+Amount
+(EUR)
+Withdrawable
+(EUR)
+27.04 Mon 14:21:54
+Bet slip pay in - Lucky Super 6
+9000018186596263
+- 1,00
+4.352,00
+27.04 Mon 14:21:54
+Bet slip pay in - Lucky Super 6
+9000018187999300
+- 1,00
+4.351,00
+27.04 Mon 14:21:51
+Bet slip pay in - Lucky Super 6
+9000018182225882
+- 1,00
+4.353,00
+27.04 Mon 14:21:48
+Bet slip pay in - Lucky Super 6
+9000018189205930
+- 10,00
+4.354,00
+27.04 Mon 14:21:45
+Bet slip pay in - Lucky Super 6
+9000018180548942
+- 1,00
+4.364,00
+27.04 Mon 14:21:41
+Bet slip pay in - Lucky Super 6
+9000018188295154
+- 1,00
+4.365,00
+27.04 Mon 14:21:38
+Bet slip pay in - Lucky Super 6
+9000018181420990
+- 1,00
+4.366,00
+27.04 Mon 14:21:34
+Bet slip pay in - Lucky Super 6
+9000018181486847
+- 1,00
+4.367,00
+27.04 Mon 14:20:50
+Bet slip pay in - Sports
+1818090005544074
+- 23,00
+4.368,00
+27.04 Mon 14:20:38
+Bet slip pay in - Sports
+1818090001649881
+- 22,00
+4.391,00
+27.04 Mon 14:20:26
+Bet slip pay in - Sports
+1818090000186027
+- 21,00
+4.413,00
+27.04 Mon 14:20:19
+Bet slip pay in - Sports
+1818090001321854
+- 20,00
+4.434,00
+27.04 Mon 14:20:14
+Bet slip pay in - Sports
+1818090005793405
+- 24,00
+4.454,00
+27.04 Mon 14:20:07
+Bet slip pay in - Sports
+1818090005346330
+- 23,00
+4.478,00
+27.04 Mon 14:20:00
+Bet slip pay in - Sports
+1818090004573811
+- 22,00
+4.501,00
+27.04 Mon 14:19:54
+Bet slip pay in - Sports
+1818090006124390
+- 21,00
+4.523,00
+27.04 Mon 14:19:47
+Bet slip pay in - Sports
+1818090006562510
+- 20,00
+4.544,00
+27.04 Mon 13:56:19
+Bet slip pay in - Sports
+1818090000287329
+- 20,00
+4.564,00
+27.04 Mon 13:53:58
+Bet slip pay in - Sports
+1818090009436028
+- 24,00
+4.584,00
+27.04 Mon 13:53:52
+Bet slip pay in - Sports
+1818090009611474
+- 23,00
+4.608,00
+Prev
+1
+2
+Next
